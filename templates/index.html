@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSamarSolutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo-container">
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-image">
+
+            <h1 class="logo">
+                
+            </h1>
+
+        </div>
+
+        <ul>
+
+            <li><a href="#home" onclick="showHome()">Home</a></li>
+
+            <li><a href="#about" onclick="showAbout()">About</a></li> 
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <!-- FLOATING BUTTON BOX -->
+
+        <div class="hero-buttons">
+
+            <button class="btn">
+                View Projects
+            </button>
+
+            <button class="btn secondary">
+                Contact Me
+            </button>
+
+    </div>
+
+    <!-- SERVICES -->
+
+     <div class="services-container">
+
+        <div class="service-box">
+
+            <div class="service-icon">💡</div>
+
+            <h3>
+                ELECTRICAL <br> DESIGN
+            </h3>
+
+        </div>
+
+        <div class="service-box">
+
+            <div class="service-icon">⚡</div>
+
+            <h3>
+                POWER <br> SYSTEMS
+            </h3>
+
+        </div>
+
+        <div class="service-box">
+
+            <div class="service-icon">⚙️</div>
+
+            <h3>
+                AUTOMATION <br> CONTROL
+            </h3>
+
+        </div>
+
+        <div class="service-box">
+
+            <div class="service-icon">💻</div>
+
+            <h3>
+                PYTHON <br> AUTOMATION
+            </h3>
+
+        </div>
+
+        <div class="service-box">
+
+            <div class="service-icon">🧠</div>
+
+            <h3>
+                AI & DATA <br> SOLUTIONS
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <!-- FLOATING CARD -->
+
+    <div class="hero-content about-card">
+
+        <h1 class="main-title">
+            Engr. Joshua Samar
+        </h1>
+
+        <h2>
+            Electrical Designer | Revit MEP | Python Developer
+        </h2>
+
+        <p>
+            Building modern BIM solutions, Electrical Systems,
+            Automation Tools, and Python-powered Applications
+            for Engineering and Technology Industries.
+        </p>
+
+    </div>
+
+    <!-- ABOUT CONTENT -->
+
+        <h1 class="section-title">
+            About Me
+        </h1>
+
+        <p class="about-text">
+
+            Registered Electrical Engineer with experience in
+            Revit MEP, BIM Coordination, Electrical Design,
+            Python Development, and Automation Systems.
+
+            Passionate about building innovative engineering
+            solutions and modern digital applications.
+
+        </p>
+
+    </div>
+
+    </section>
+
+    <!-- PROJECTS SECTION -->
+
+    <section class="projects" id="projects">
+
+        <h1 class="section-title">
+            Projects
+        </h1>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+
+                <h2>
+                    BIM Electrical Design
+                </h2>
+
+                <p>
+                    Professional electrical BIM modeling
+                    using Revit MEP and Navisworks.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>
+                    Python Automation
+                </h2>
+
+                <p>
+                    Python applications for automation,
+                    AI integration, and workflow tools.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>
+                    Engineering Solutions
+                </h2>
+
+                <p>
+                    Modern electrical engineering systems
+                    and technical project coordination.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="section-title">
+            Contact
+        </h1>
+
+        <p class="contact-text">
+            Available for engineering projects,
+            BIM coordination, automation,
+            and software development.
+        </p>
+
+        <div class="contact-buttons">
+
+            <button class="btn">
+                Email Me
+            </button>
+
+            <button class="btn secondary">
+                Download Resume
+            </button>
+
+        </div>
+
+    </section>
+<footer>
+
+    <p>
+        © 2026 JSamarSolutions | Electrical Engineering • BIM • Automation
+    </p>
+
+</footer>
+
+</body>
+
+</html>

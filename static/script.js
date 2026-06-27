@@ -19,26 +19,20 @@ function toggleNav() {
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('section');
 
-// Highlight immediately on click
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
-    // Remove active from all
     navLinks.forEach(l => l.classList.remove('active'));
-    // Add active to clicked one
     link.classList.add('active');
-    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
   });
 });
 
-// Update highlight on scroll
 window.addEventListener('scroll', () => {
   let current = '';
   const scrollY = window.scrollY;
   const windowHeight = window.innerHeight;
   const docHeight = document.documentElement.scrollHeight;
 
-  // Force contact when at very bottom
   if (scrollY + windowHeight >= docHeight - 10) {
     current = 'contact';
   } else {
@@ -57,6 +51,39 @@ window.addEventListener('scroll', () => {
       link.classList.add('active');
     }
   });
+});
+
+// =========================
+// PROJECT MODALS
+// =========================
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal.active').forEach(modal => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
 });
 
 // =========================

@@ -76,13 +76,66 @@ document.querySelectorAll('.modal').forEach(modal => {
   });
 });
 
-// Close modal with Escape key
+// =========================
+// LIGHTBOX
+// =========================
+let currentGallery = [];
+let currentIndex = 0;
+
+function openLightbox(item) {
+  // Get all gallery items in the same modal
+  const modal = item.closest('.modal-box');
+  const allItems = modal.querySelectorAll('.gallery-item');
+
+  currentGallery = Array.from(allItems);
+  currentIndex = currentGallery.indexOf(item);
+
+  showLightboxImage(currentIndex);
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage(index) {
+  const item = currentGallery[index];
+  const img = item.querySelector('img');
+  const title = item.querySelector('h4').innerText;
+  const desc = item.querySelector('p').innerText;
+
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox-title').innerText = title;
+  document.getElementById('lightbox-desc').innerText = desc;
+}
+
+function prevImage(e) {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  showLightboxImage(currentIndex);
+}
+
+function nextImage(e) {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  showLightboxImage(currentIndex);
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Arrow keys to navigate lightbox
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal.active').forEach(modal => {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+  if (document.getElementById('lightbox').classList.contains('active')) {
+    if (e.key === 'ArrowLeft') prevImage(e);
+    if (e.key === 'ArrowRight') nextImage(e);
+    if (e.key === 'Escape') closeLightbox();
+  } else {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal.active').forEach(modal => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
   }
 });
 

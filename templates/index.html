@@ -180,7 +180,6 @@
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
 
-        <!-- PROJECT 1 -->
         <div class="project-card" onclick="openModal('modal-bim')">
           <div class="project-top">
             <span class="project-icon">🏗️</span>
@@ -194,7 +193,6 @@
           <p class="project-click">👆 Click to view portfolio</p>
         </div>
 
-        <!-- PROJECT 2 -->
         <div class="project-card" onclick="openModal('modal-electrical')">
           <div class="project-top">
             <span class="project-icon">⚡</span>
@@ -208,7 +206,6 @@
           <p class="project-click">👆 Click to view portfolio</p>
         </div>
 
-        <!-- PROJECT 3 -->
         <div class="project-card" onclick="openModal('modal-python')">
           <div class="project-top">
             <span class="project-icon">💻</span>
@@ -277,7 +274,7 @@
   </footer>
 
   <!-- ===================== -->
-  <!-- MODALS                -->
+  <!-- PROJECT MODALS        -->
   <!-- ===================== -->
 
   <!-- MODAL: BIM -->
@@ -287,9 +284,27 @@
       <h2 class="modal-title">🏗️ MEP Electrical BIM Design</h2>
       <p class="modal-desc">Professional electrical BIM modeling using Revit MEP with Evolve add-in. Includes clash detection via Navisworks and coordination through Autodesk Construction Cloud.</p>
       <div class="modal-gallery">
-        <img src="{{ url_for('static', filename='images/bim1.jpg') }}" alt="BIM Project 1">
-        <img src="{{ url_for('static', filename='images/bim2.jpg') }}" alt="BIM Project 2">
-        <img src="{{ url_for('static', filename='images/bim3.jpg') }}" alt="BIM Project 3">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/bim1.jpg') }}" alt="BIM Project 1">
+          <div class="gallery-info">
+            <h4>Electrical Layout Model</h4>
+            <p>3D electrical layout modeled in Revit MEP for a commercial building project.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/bim2.jpg') }}" alt="BIM Project 2">
+          <div class="gallery-info">
+            <h4>Clash Detection Review</h4>
+            <p>Navisworks clash detection and coordination across MEP disciplines.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/bim3.jpg') }}" alt="BIM Project 3">
+          <div class="gallery-info">
+            <h4>BIM Coordination Drawing</h4>
+            <p>Coordinated BIM drawing submitted through Autodesk Construction Cloud.</p>
+          </div>
+        </div>
       </div>
       <div class="modal-tools">
         <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>BIM 360</span><span>ACC</span>
@@ -304,8 +319,20 @@
       <h2 class="modal-title">⚡ Electrical Control Systems</h2>
       <p class="modal-desc">Designed and optimized industrial electrical control systems at Cargill. Improved efficiency and reliability through automation and system troubleshooting.</p>
       <div class="modal-gallery">
-        <img src="{{ url_for('static', filename='images/electrical1.jpg') }}" alt="Electrical Project 1">
-        <img src="{{ url_for('static', filename='images/electrical2.jpg') }}" alt="Electrical Project 2">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/electrical1.jpg') }}" alt="Electrical Project 1">
+          <div class="gallery-info">
+            <h4>Control Panel Design</h4>
+            <p>Industrial electrical control panel designed for process automation at Cargill facility.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/electrical2.jpg') }}" alt="Electrical Project 2">
+          <div class="gallery-info">
+            <h4>Power Distribution System</h4>
+            <p>Power distribution layout and single line diagram for industrial plant operations.</p>
+          </div>
+        </div>
       </div>
       <div class="modal-tools">
         <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
@@ -320,11 +347,37 @@
       <h2 class="modal-title">💻 Python Automation Tools</h2>
       <p class="modal-desc">Python applications for engineering workflow automation, AI integration, and data processing. Built tools to streamline documentation and reporting processes.</p>
       <div class="modal-gallery">
-        <img src="{{ url_for('static', filename='images/python1.jpg') }}" alt="Python Project 1">
-        <img src="{{ url_for('static', filename='images/python2.jpg') }}" alt="Python Project 2">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/python1.png') }}" alt="Python Project 1">
+          <div class="gallery-info">
+            <h4>Automation Script Dashboard</h4>
+            <p>Python-based automation tool for generating engineering reports and data processing.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/python2.png') }}" alt="Python Project 2">
+          <div class="gallery-info">
+            <h4>AI Integration Tool</h4>
+            <p>AI-powered workflow tool built with Python for engineering data analysis and automation.</p>
+          </div>
+        </div>
       </div>
       <div class="modal-tools">
         <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-prev" onclick="prevImage(event)">&#8592;</button>
+    <button class="lightbox-next" onclick="nextImage(event)">&#8594;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-info">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
       </div>
     </div>
   </div>

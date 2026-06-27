@@ -26,15 +26,10 @@
     <button class="hamburger" onclick="toggleNav()">&#9776;</button>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — background image only, no blur, no text -->
   <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Registered Electrical Engineer · PRC Licensed</p>
-      <h1 class="hero-name">Engr. Joshua <span class="accent">Samar</span></h1>
-      <p class="hero-role">MEP Electrical Designer &amp; BIM Specialist</p>
-      <p class="hero-sub">Delivering precise electrical layouts, BIM coordination, and Python-powered automation for commercial, industrial, and utility projects.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-outline">Hire Me</a>
@@ -49,11 +44,15 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT — name and title moved here -->
   <section class="section" id="about">
     <div class="container">
       <p class="label">About Me</p>
-      <h2 class="section-title">Who I Am</h2>
+      <div class="about-intro">
+        <h1 class="hero-name">Engr. Joshua <span class="accent">Samar</span></h1>
+        <p class="hero-role">MEP Electrical Designer &amp; BIM Specialist</p>
+        <p class="hero-sub">Delivering precise electrical layouts, BIM coordination, and Python-powered automation for commercial, industrial, and utility projects.</p>
+      </div>
       <div class="about-grid">
         <div class="about-text">
           <p>Registered Electrical Engineer with strong experience in MEP electrical design, BIM modeling, and project coordination. Skilled in Revit Electrical Design, AutoCAD MEP, Evolve, Navisworks Manage with BIM 360, and Bluebeam Revu.</p>
@@ -185,7 +184,6 @@
       <p class="label">My Work</p>
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-
         <div class="project-card">
           <div class="project-top">
             <span class="project-icon">🏗️</span>
@@ -197,7 +195,6 @@
             <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>ACC</span>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-top">
             <span class="project-icon">⚡</span>
@@ -209,7 +206,6 @@
             <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-top">
             <span class="project-icon">💻</span>
@@ -221,7 +217,6 @@
             <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>

@@ -429,3 +429,42 @@ body::after {
   .hero-name { font-size: 2.2rem; }
   .logo-text { display: none; }
 }
+
+/* ========================= */
+/* HERO - NO BLUR            */
+/* ========================= */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 140px 2rem 100px;
+  position: relative; overflow: hidden;
+  background:
+    linear-gradient(rgba(5,11,24,0.5), rgba(5,11,24,0.7)),
+    url("/static/images/background.png") center/cover no-repeat;
+}
+
+/* ABOUT INTRO - name moved here */
+.about-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-intro .hero-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800; line-height: 1.05;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+
+.about-intro .hero-role {
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--cyan); margin-bottom: 0.8rem;
+}
+
+.about-intro .hero-sub {
+  font-size: 0.95rem; color: var(--gray);
+  line-height: 1.8; max-width: 650px;
+  margin: 0 auto;
+}

@@ -579,3 +579,55 @@ body::after {
   text-align: center !important;
   width: 100%;
 }
+
+/* ========================= */
+/* HERO FINAL FIX            */
+/* ========================= */
+.hero {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 2rem 3rem !important;
+  background:
+    linear-gradient(to bottom, rgba(5,11,24,0.1) 0%, rgba(5,11,24,0.6) 100%),
+    url("/static/images/background.png") center/cover no-repeat !important;
+  filter: none !important;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-services {
+  display: flex !important;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 0 1rem 2rem !important; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cta .btn-primary,
+  .hero-cta .btn-outline { width: 200px; text-align: center; }
+  .svc { min-width: 70px; padding: 10px 12px; }
+  .svc span { font-size: 1.2rem; }
+  .svc p { font-size: 0.6rem; }
+}

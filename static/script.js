@@ -1,5 +1,5 @@
-// ========================= 
-// NAVBAR SCROLL            
+// =========================
+// NAVBAR SCROLL
 // =========================
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -13,7 +13,6 @@ function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// Close nav on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById('navLinks').classList.remove('open');
@@ -21,7 +20,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // =========================
-// SMOOTH SCROLL + ACTIVE LINK
+// ACTIVE NAV LINK ON SCROLL
 // =========================
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -59,27 +58,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 revealEls.forEach(el => observer.observe(el));
-
-// =========================
-// TYPEWRITER ON HERO NAME
-// =========================
-window.addEventListener('load', () => {
-  const name = document.querySelector('.hero-name');
-  if (!name) return;
-  const html = name.innerHTML;
-  name.innerHTML = '';
-  name.style.opacity = '1';
-  let i = 0;
-  const chars = html.split('');
-  function type() {
-    if (i < chars.length) {
-      name.innerHTML += chars[i];
-      i++;
-      setTimeout(type, 40);
-    }
-  }
-  setTimeout(type, 300);
-});
 
 // =========================
 // SCROLL TO TOP ON REFRESH

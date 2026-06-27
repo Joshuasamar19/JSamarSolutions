@@ -13,25 +13,44 @@ function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-document.querySelectorAll('.nav-links a').forEach(link => {
+// =========================
+// NAV LINKS - CLICK & SCROLL
+// =========================
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section');
+
+// Highlight immediately on click
+navLinks.forEach(link => {
   link.addEventListener('click', () => {
+    // Remove active from all
+    navLinks.forEach(l => l.classList.remove('active'));
+    // Add active to clicked one
+    link.classList.add('active');
+    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
   });
 });
 
-// =========================
-// ACTIVE NAV LINK ON SCROLL
-// =========================
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
+// Update highlight on scroll
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 120) {
-      current = section.getAttribute('id');
-    }
-  });
+  const scrollY = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  // Force contact when at very bottom
+  if (scrollY + windowHeight >= docHeight - 10) {
+    current = 'contact';
+  } else {
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionBottom) {
+        current = section.getAttribute('id');
+      }
+    });
+  }
+
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) {

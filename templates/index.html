@@ -1,258 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>JSamarSolutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engr. Joshua Samar | Electrical Engineer & BIM Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-
-    <nav>
-
-        <div class="logo-container">
-
-            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-image">
-
-            <h1 class="logo">
-                
-            </h1>
-
-        </div>
-
-        <ul>
-
-            <li><a href="#home" onclick="showHome()">Home</a></li>
-
-            <li><a href="#about" onclick="showAbout()">About</a></li> 
-
-            <li><a href="#projects">Projects</a></li>
-
-            <li><a href="#contact">Contact</a></li>
-
-        </ul>
-
-    </nav>
-
-    <!-- HERO SECTION -->
-
-<section class="hero" id="home">
-
-    <!-- FLOATING BUTTON BOX -->
-
-        <div class="hero-buttons">
-
-            <button class="btn">
-                View Projects
-            </button>
-
-            <button class="btn secondary">
-                Contact Me
-            </button>
-
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-image" alt="JSamar Logo">
+      <span class="logo-text">JSamarSolutions</span>
     </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+  </nav>
 
-    <!-- SERVICES -->
-
-     <div class="services-container">
-
-        <div class="service-box">
-
-            <div class="service-icon">💡</div>
-
-            <h3>
-                ELECTRICAL <br> DESIGN
-            </h3>
-
-        </div>
-
-        <div class="service-box">
-
-            <div class="service-icon">⚡</div>
-
-            <h3>
-                POWER <br> SYSTEMS
-            </h3>
-
-        </div>
-
-        <div class="service-box">
-
-            <div class="service-icon">⚙️</div>
-
-            <h3>
-                AUTOMATION <br> CONTROL
-            </h3>
-
-        </div>
-
-        <div class="service-box">
-
-            <div class="service-icon">💻</div>
-
-            <h3>
-                PYTHON <br> AUTOMATION
-            </h3>
-
-        </div>
-
-        <div class="service-box">
-
-            <div class="service-icon">🧠</div>
-
-            <h3>
-                AI & DATA <br> SOLUTIONS
-            </h3>
-
-        </div>
-
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Registered Electrical Engineer · PRC Licensed</p>
+      <h1 class="hero-name">Engr. Joshua<br><span class="accent">Samar</span></h1>
+      <p class="hero-role">MEP Electrical Designer &amp; BIM Specialist</p>
+      <p class="hero-sub">Delivering precise electrical layouts, BIM coordination, and Python-powered automation for commercial, industrial, and utility projects.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Hire Me</a>
+      </div>
     </div>
-
-</section>
-
-    <!-- ABOUT SECTION -->
-
-<section class="about" id="about">
-
-    <!-- FLOATING CARD -->
-
-    <div class="hero-content about-card">
-
-        <h1 class="main-title">
-            Engr. Joshua Samar
-        </h1>
-
-        <h2>
-            Electrical Designer | Revit MEP | Python Developer
-        </h2>
-
-        <p>
-            Building modern BIM solutions, Electrical Systems,
-            Automation Tools, and Python-powered Applications
-            for Engineering and Technology Industries.
-        </p>
-
+    <div class="hero-services">
+      <div class="svc"><span>💡</span><p>Electrical Design</p></div>
+      <div class="svc"><span>🏗️</span><p>BIM Modeling</p></div>
+      <div class="svc"><span>⚙️</span><p>Automation</p></div>
+      <div class="svc"><span>💻</span><p>Python Dev</p></div>
+      <div class="svc"><span>🧠</span><p>AI Solutions</p></div>
     </div>
+  </section>
 
-    <!-- ABOUT CONTENT -->
-
-        <h1 class="section-title">
-            About Me
-        </h1>
-
-        <p class="about-text">
-
-            Registered Electrical Engineer with experience in
-            Revit MEP, BIM Coordination, Electrical Design,
-            Python Development, and Automation Systems.
-
-            Passionate about building innovative engineering
-            solutions and modern digital applications.
-
-        </p>
-
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="label">About Me</p>
+      <h2 class="section-title">Who I Am</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Registered Electrical Engineer with strong experience in MEP electrical design, BIM modeling, and project coordination. Skilled in Revit Electrical Design, AutoCAD MEP, Evolve, Navisworks Manage with BIM 360, and Bluebeam Revu.</p>
+          <br>
+          <p>Proficient in developing precise electrical layouts and documentation aligned with NEC, IEC, and IEEE standards. Dedicated to ensuring technical accuracy, design efficiency, and multidisciplinary coordination in every project.</p>
+          <div class="about-details">
+            <div class="detail"><span class="detail-label">📍 Location</span><span>Bulacan, Philippines</span></div>
+            <div class="detail"><span class="detail-label">🎓 Education</span><span>BS Electrical Engineering, Bulacan State University</span></div>
+            <div class="detail"><span class="detail-label">📅 Graduated</span><span>September 2020</span></div>
+            <div class="detail"><span class="detail-label">🏅 License</span><span>Registered Electrical Engineer · PRC</span></div>
+            <div class="detail"><span class="detail-label">🌐 Language</span><span>English, Filipino</span></div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-n">5+</span><span class="stat-l">Years Experience</span></div>
+          <div class="stat"><span class="stat-n">3</span><span class="stat-l">Companies</span></div>
+          <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Certifications</span></div>
+          <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Licensed PRC</span></div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    </section>
+  <!-- EXPERIENCE -->
+  <section class="section section-dark" id="experience">
+    <div class="container">
+      <p class="label">Career</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
 
-    <!-- PROJECTS SECTION -->
-
-    <section class="projects" id="projects">
-
-        <h1 class="section-title">
-            Projects
-        </h1>
-
-        <div class="project-grid">
-
-            <div class="project-card">
-
-                <h2>
-                    BIM Electrical Design
-                </h2>
-
-                <p>
-                    Professional electrical BIM modeling
-                    using Revit MEP and Navisworks.
-                </p>
-
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>MEPF Designer</h3>
+              <span class="timeline-badge current">Current</span>
             </div>
-
-            <div class="project-card">
-
-                <h2>
-                    Python Automation
-                </h2>
-
-                <p>
-                    Python applications for automation,
-                    AI integration, and workflow tools.
-                </p>
-
-            </div>
-
-            <div class="project-card">
-
-                <h2>
-                    Engineering Solutions
-                </h2>
-
-                <p>
-                    Modern electrical engineering systems
-                    and technical project coordination.
-                </p>
-
-            </div>
-
+            <p class="timeline-company">BESCO · Knoxville, TN (Remote)</p>
+            <p class="timeline-date">July 2025 – Present</p>
+            <ul class="timeline-list">
+              <li>Develop and coordinate detailed electrical models using Revit with Evolve add-in within Autodesk Construction Cloud</li>
+              <li>Perform clash detection and coordination review in Navisworks to resolve issues across trades</li>
+              <li>Apply Bluebeam markups and design revisions to maintain model accuracy and documentation</li>
+              <li>Collaborate with engineers and BIM teams through ACC and Procore for real-time issue tracking</li>
+            </ul>
+          </div>
         </div>
 
-    </section>
-
-    <!-- CONTACT SECTION -->
-
-    <section class="contact" id="contact">
-
-        <h1 class="section-title">
-            Contact
-        </h1>
-
-        <p class="contact-text">
-            Available for engineering projects,
-            BIM coordination, automation,
-            and software development.
-        </p>
-
-        <div class="contact-buttons">
-
-            <button class="btn">
-                Email Me
-            </button>
-
-            <button class="btn secondary">
-                Download Resume
-            </button>
-
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Electrical Engineer</h3>
+            </div>
+            <p class="timeline-company">Cargill · Bulacan, PH (Onsite)</p>
+            <p class="timeline-date">September 2022 – July 2025</p>
+            <ul class="timeline-list">
+              <li>Designed and optimized electrical control systems to improve efficiency and reliability</li>
+              <li>Collaborated with operations teams on automation and process improvements</li>
+              <li>Ensured compliance with safety standards and performed system testing and troubleshooting</li>
+              <li>Prepared technical reports, drawings, and documentation for project execution</li>
+            </ul>
+          </div>
         </div>
 
-    </section>
-<footer>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Quality Control Engineer</h3>
+            </div>
+            <p class="timeline-company">NW Steel Technologies · Bulacan, PH (Onsite)</p>
+            <p class="timeline-date">July 2021 – January 2022</p>
+            <ul class="timeline-list">
+              <li>Developed and implemented quality processes and standards for inspections and testing</li>
+              <li>Monitored and analyzed quality control performance to ensure compliance</li>
+              <li>Investigated and resolved product or process issues</li>
+            </ul>
+          </div>
+        </div>
 
-    <p>
-        © 2026 JSamarSolutions | Electrical Engineering • BIM • Automation
-    </p>
+      </div>
+    </div>
+  </section>
 
-</footer>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <p class="label">Expertise</p>
+      <h2 class="section-title">Skills & Tools</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h4>BIM & Design Tools</h4>
+          <div class="skill-tags">
+            <span>Revit MEP</span>
+            <span>AutoCAD MEP</span>
+            <span>Evolve 9</span>
+            <span>Navisworks</span>
+            <span>BIM 360</span>
+            <span>Bluebeam Revu</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Electrical Engineering</h4>
+          <div class="skill-tags">
+            <span>Power Distribution</span>
+            <span>Load Calculations</span>
+            <span>Circuit Protection</span>
+            <span>NEC Standards</span>
+            <span>IEC Standards</span>
+            <span>IEEE Standards</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Programming & Automation</h4>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>C/C++</span>
+            <span>Arduino</span>
+            <span>Raspberry Pi</span>
+            <span>PLC Programming</span>
+            <span>SCADA</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Project Skills</h4>
+          <div class="skill-tags">
+            <span>BIM Coordination</span>
+            <span>Clash Detection</span>
+            <span>Estimation & Costing</span>
+            <span>3D Modelling</span>
+            <span>Technical Reporting</span>
+            <span>Safety Compliance</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section-dark" id="projects">
+    <div class="container">
+      <p class="label">My Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-icon">🏗️</span>
+            <span class="project-tag">BIM</span>
+          </div>
+          <h3>MEP Electrical BIM Design</h3>
+          <p>Professional electrical BIM modeling using Revit MEP with Evolve add-in. Includes clash detection via Navisworks and coordination through Autodesk Construction Cloud.</p>
+          <div class="project-tools">
+            <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>ACC</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-icon">⚡</span>
+            <span class="project-tag">Electrical</span>
+          </div>
+          <h3>Electrical Control Systems</h3>
+          <p>Designed and optimized industrial electrical control systems at Cargill. Improved efficiency and reliability through automation and system troubleshooting.</p>
+          <div class="project-tools">
+            <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-icon">💻</span>
+            <span class="project-tag">Automation</span>
+          </div>
+          <h3>Python Automation Tools</h3>
+          <p>Python applications for engineering workflow automation, AI integration, and data processing. Built tools to streamline documentation and reporting processes.</p>
+          <div class="project-tools">
+            <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="label">Get In Touch</p>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="contact-sub">Available for engineering projects, BIM coordination, automation, and software development.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <a href="mailto:engr.joshuasamar@gmail.com" class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <p class="contact-label">Email</p>
+              <p class="contact-value">engr.joshuasamar@gmail.com</p>
+            </div>
+          </a>
+          <a href="tel:+639760934889" class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <p class="contact-label">Phone</p>
+              <p class="contact-value">+63 976 093 4889</p>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/joshua-samar-34738825" target="_blank" class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <p class="contact-label">LinkedIn</p>
+              <p class="contact-value">joshua-samar-34738825</p>
+            </div>
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <p class="contact-label">Location</p>
+              <p class="contact-value">Bulacan, Philippines</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:engr.joshuasamar@gmail.com" class="btn-primary full">Send Email</a>
+          <a href="{{ url_for('static', filename='resume.pdf') }}" download class="btn-outline full">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Engr. Joshua Samar &nbsp;·&nbsp; Electrical Engineering · BIM · Automation</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
-
 </html>

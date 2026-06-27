@@ -1,209 +1,87 @@
+// ========================= 
+// NAVBAR SCROLL            
 // =========================
-// SMOOTH SCROLL NAVIGATION
-// =========================
-
-document.querySelectorAll('nav a').forEach(anchor => {
-
-    anchor.addEventListener('click', function(e) {
-
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-
-        const targetSection = document.querySelector(targetId);
-
-        if(targetSection){
-
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-
-        }
-
-    });
-
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
 });
 
 // =========================
-// ACTIVE NAVBAR LINK
+// MOBILE NAV TOGGLE
 // =========================
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-
-        if(pageYOffset >= sectionTop){
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href").includes(current)){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
 });
 
 // =========================
-// HERO FLOAT ANIMATION
+// SMOOTH SCROLL + ACTIVE LINK
 // =========================
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-const heroCard = document.querySelector(".hero-content");
-
-window.addEventListener("mousemove", (e) => {
-
-    const x = (window.innerWidth / 2 - e.pageX) / 40;
-    const y = (window.innerHeight / 2 - e.pageY) / 40;
-
-    heroCard.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 120) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
 });
 
-// RESET POSITION
-
-window.addEventListener("mouseleave", () => {
-
-    heroCard.style.transform = "rotateY(0deg) rotateX(0deg)";
-
-});
-
 // =========================
-// REVEAL ANIMATION
+// REVEAL ON SCROLL
 // =========================
-
-const revealElements = document.querySelectorAll(
-    ".project-card, .service-box, .about-card, .contact"
+const revealEls = document.querySelectorAll(
+  '.stat, .timeline-card, .skill-group, .project-card, .contact-item, .svc, .about-text, .about-stats'
 );
 
-function revealOnScroll(){
+revealEls.forEach(el => el.classList.add('reveal'));
 
-    const triggerBottom = window.innerHeight * 0.85;
-
-    revealElements.forEach(el => {
-
-        const elementTop = el.getBoundingClientRect().top;
-
-        if(elementTop < triggerBottom){
-
-            el.classList.add("show");
-
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-revealOnScroll();
-
-// =========================
-// BUTTON FUNCTIONS
-// =========================
-
-// VIEW PROJECTS BUTTON
-
-const projectBtn = document.querySelector(".hero-buttons .btn");
-
-if(projectBtn){
-
-    projectBtn.addEventListener("click", () => {
-
-        document.querySelector("#projects").scrollIntoView({
-            behavior: "smooth"
-        });
-
-    });
-
-}
-
-// CONTACT BUTTON
-
-const contactBtn = document.querySelector(".hero-buttons .secondary");
-
-if(contactBtn){
-
-    contactBtn.addEventListener("click", () => {
-
-        document.querySelector("#contact").scrollIntoView({
-            behavior: "smooth"
-        });
-
-    });
-
-}
-
-// =========================
-// TYPEWRITER EFFECT
-// =========================
-
-const title = document.querySelector(".main-title");
-
-if(title){
-
-    const text = title.innerText;
-
-    title.innerText = "";
-
-    let index = 0;
-
-    function typeEffect(){
-
-        if(index < text.length){
-
-            title.innerText += text.charAt(index);
-
-            index++;
-
-            setTimeout(typeEffect, 80);
-
-        }
-
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('show'), i * 80);
     }
+  });
+}, { threshold: 0.12 });
 
-    typeEffect();
-
-}
+revealEls.forEach(el => observer.observe(el));
 
 // =========================
-// GLOW EFFECT FOLLOW MOUSE
+// TYPEWRITER ON HERO NAME
 // =========================
-
-document.addEventListener("mousemove", (e) => {
-
-    const glow = document.querySelector(".hero");
-
-    const x = e.clientX / window.innerWidth * 100;
-    const y = e.clientY / window.innerHeight * 100;
-
-    glow.style.backgroundPosition = `${x}% ${y}%`;
-
+window.addEventListener('load', () => {
+  const name = document.querySelector('.hero-name');
+  if (!name) return;
+  const html = name.innerHTML;
+  name.innerHTML = '';
+  name.style.opacity = '1';
+  let i = 0;
+  const chars = html.split('');
+  function type() {
+    if (i < chars.length) {
+      name.innerHTML += chars[i];
+      i++;
+      setTimeout(type, 40);
+    }
+  }
+  setTimeout(type, 300);
 });
 
 // =========================
 // SCROLL TO TOP ON REFRESH
 // =========================
-
-window.onbeforeunload = function () {
-
-    window.scrollTo(0, 0);
-
-};
+window.onbeforeunload = () => window.scrollTo(0, 0);

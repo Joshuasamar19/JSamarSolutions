@@ -677,3 +677,28 @@ body::after {
     font-size: 1.2rem !important;
   }
 }
+
+/* ========================= */
+/* NAME SINGLE LINE FIX      */
+/* ========================= */
+.about-intro .hero-name {
+  font-size: clamp(1rem, 3.5vw, 2.2rem) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .about-intro .hero-name {
+    font-size: clamp(0.9rem, 4vw, 1.3rem) !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-intro .hero-name {
+    font-size: 0.95rem !important;
+    white-space: nowrap !important;
+  }
+}

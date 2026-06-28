@@ -654,3 +654,26 @@ body::after {
   .lightbox-prev { left: 0.3rem; }
   .lightbox-next { right: 0.3rem; }
 }
+
+/* ========================= */
+/* HERO NAME SIZE FIX        */
+/* ========================= */
+.about-intro .hero-name {
+  font-size: clamp(1.4rem, 3.5vw, 2.5rem) !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  line-height: 1.2 !important;
+}
+
+@media (max-width: 768px) {
+  .about-intro .hero-name {
+    font-size: 1.4rem !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-intro .hero-name {
+    font-size: 1.2rem !important;
+  }
+}

@@ -702,3 +702,11 @@ body::after {
     white-space: nowrap !important;
   }
 }
+
+/* ========================= */
+/* SERVICE CLICKABLE         */
+/* ========================= */
+.svc { cursor: pointer; }
+.svc:hover .service-click {
+  opacity: 1;
+}

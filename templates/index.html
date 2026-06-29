@@ -34,11 +34,21 @@
         <a href="#contact" class="btn-outline">Hire Me</a>
       </div>
       <div class="hero-services">
-        <div class="svc"><span>💡</span><p>Electrical Design</p></div>
-        <div class="svc"><span>🏗️</span><p>BIM Modeling</p></div>
-        <div class="svc"><span>⚙️</span><p>Automation</p></div>
-        <div class="svc"><span>💻</span><p>Python Dev</p></div>
-        <div class="svc"><span>🧠</span><p>AI Solutions</p></div>
+        <div class="svc" onclick="openModal('modal-svc-electrical')">
+          <span>💡</span><p>Electrical Design</p>
+        </div>
+        <div class="svc" onclick="openModal('modal-svc-bim')">
+          <span>🏗️</span><p>BIM Modeling</p>
+        </div>
+        <div class="svc" onclick="openModal('modal-svc-automation')">
+          <span>⚙️</span><p>Automation</p>
+        </div>
+        <div class="svc" onclick="openModal('modal-svc-python')">
+          <span>💻</span><p>Python Dev</p>
+        </div>
+        <div class="svc" onclick="openModal('modal-svc-ai')">
+          <span>🧠</span><p>AI Solutions</p>
+        </div>
       </div>
     </div>
   </section>
@@ -49,12 +59,12 @@
       <p class="label">About Me</p>
       <div class="about-intro">
         <h1 class="hero-name">Engr. Joshua <span class="accent">Samar</span></h1>
-        <p class="hero-role">MEP Electrical Designer &amp; BIM Specialist</p>
+        <p class="hero-role">MEPF Specialist &amp; Python Developer</p>
         <p class="hero-sub">Delivering precise electrical layouts, BIM coordination, and Python-powered automation for commercial, industrial, and utility projects.</p>
       </div>
       <div class="about-grid">
         <div class="about-text">
-          <p>Registered Electrical Engineer with strong experience in MEP electrical design, BIM modeling, and project coordination. Skilled in Revit Electrical Design, AutoCAD MEP, Evolve, Navisworks Manage with BIM 360, and Bluebeam Revu.</p>
+          <p>Registered Electrical Engineer with strong experience in MEP design, BIM modeling, and project coordination. Skilled in Revit Electrical Design, AutoCAD MEP, Evolve, Navisworks Manage with BIM 360, and Bluebeam Revu.</p>
           <br>
           <p>Proficient in developing precise electrical layouts and documentation aligned with NEC, IEC, and IEEE standards. Dedicated to ensuring technical accuracy, design efficiency, and multidisciplinary coordination in every project.</p>
           <div class="about-details">
@@ -179,7 +189,6 @@
       <p class="label">My Work</p>
       <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
-
         <div class="project-card" onclick="openModal('modal-bim')">
           <div class="project-top">
             <span class="project-icon">🏗️</span>
@@ -192,7 +201,6 @@
           </div>
           <p class="project-click">👆 Click to view portfolio</p>
         </div>
-
         <div class="project-card" onclick="openModal('modal-electrical')">
           <div class="project-top">
             <span class="project-icon">⚡</span>
@@ -205,7 +213,6 @@
           </div>
           <p class="project-click">👆 Click to view portfolio</p>
         </div>
-
         <div class="project-card" onclick="openModal('modal-python')">
           <div class="project-top">
             <span class="project-icon">💻</span>
@@ -218,7 +225,6 @@
           </div>
           <p class="project-click">👆 Click to view portfolio</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -364,6 +370,150 @@
       </div>
       <div class="modal-tools">
         <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- SERVICE MODALS        -->
+  <!-- ===================== -->
+
+  <!-- MODAL: ELECTRICAL DESIGN SERVICE -->
+  <div class="modal" id="modal-svc-electrical">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-svc-electrical')">✕</button>
+      <h2 class="modal-title">💡 Electrical Design</h2>
+      <p class="modal-desc">Professional electrical system design including power distribution, load calculations, circuit protection, and complete electrical layouts aligned with NEC, IEC, and IEEE standards.</p>
+      <div class="modal-gallery">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-electrical1.jpg') }}" alt="Electrical Design 1">
+          <div class="gallery-info">
+            <h4>Power Distribution Layout</h4>
+            <p>Complete electrical power distribution design for commercial and industrial facilities.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-electrical2.jpg') }}" alt="Electrical Design 2">
+          <div class="gallery-info">
+            <h4>Circuit Protection Design</h4>
+            <p>Detailed circuit protection and load calculation documentation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tools">
+        <span>AutoCAD</span><span>Revit MEP</span><span>NEC</span><span>IEC</span><span>IEEE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: BIM MODELING SERVICE -->
+  <div class="modal" id="modal-svc-bim">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-svc-bim')">✕</button>
+      <h2 class="modal-title">🏗️ BIM Modeling</h2>
+      <p class="modal-desc">Professional BIM modeling and coordination using Revit MEP with Evolve add-in. Includes clash detection, model coordination, and construction documentation through ACC and Procore.</p>
+      <div class="modal-gallery">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-bim1.jpg') }}" alt="BIM Modeling 1">
+          <div class="gallery-info">
+            <h4>3D BIM Model</h4>
+            <p>Detailed 3D BIM model created in Revit MEP for full project coordination.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-bim2.jpg') }}" alt="BIM Modeling 2">
+          <div class="gallery-info">
+            <h4>BIM Coordination Process</h4>
+            <p>Multi-discipline BIM coordination and clash detection using Navisworks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tools">
+        <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>ACC</span><span>Procore</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AUTOMATION SERVICE -->
+  <div class="modal" id="modal-svc-automation">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-svc-automation')">✕</button>
+      <h2 class="modal-title">⚙️ Automation Control</h2>
+      <p class="modal-desc">Industrial automation and control system design including PLC programming, SCADA systems, and electrical control panel design for commercial and industrial facilities.</p>
+      <div class="modal-gallery">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-automation1.jpg') }}" alt="Automation 1">
+          <div class="gallery-info">
+            <h4>PLC Control System</h4>
+            <p>PLC programming and control system design for industrial process automation.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-automation2.jpg') }}" alt="Automation 2">
+          <div class="gallery-info">
+            <h4>SCADA System Design</h4>
+            <p>SCADA system integration for real-time monitoring and control of industrial processes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tools">
+        <span>PLC</span><span>SCADA</span><span>Arduino</span><span>Raspberry Pi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PYTHON DEV SERVICE -->
+  <div class="modal" id="modal-svc-python">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-svc-python')">✕</button>
+      <h2 class="modal-title">💻 Python Development</h2>
+      <p class="modal-desc">Custom Python applications for engineering workflow automation, data processing, and AI integration. Built to streamline documentation, reporting, and technical processes.</p>
+      <div class="modal-gallery">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-python1.jpg') }}" alt="Python Dev 1">
+          <div class="gallery-info">
+            <h4>Engineering Automation Tool</h4>
+            <p>Custom Python script for automating engineering documentation and report generation.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-python2.jpg') }}" alt="Python Dev 2">
+          <div class="gallery-info">
+            <h4>Data Processing Application</h4>
+            <p>Python application for processing and analyzing engineering data efficiently.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tools">
+        <span>Python</span><span>Flask</span><span>Arduino</span><span>Raspberry Pi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AI SOLUTIONS SERVICE -->
+  <div class="modal" id="modal-svc-ai">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-svc-ai')">✕</button>
+      <h2 class="modal-title">🧠 AI & Data Solutions</h2>
+      <p class="modal-desc">AI-powered engineering solutions for data analysis, workflow automation, and intelligent decision-making tools built specifically for engineering and technical industries.</p>
+      <div class="modal-gallery">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-ai1.jpg') }}" alt="AI Solutions 1">
+          <div class="gallery-info">
+            <h4>AI Engineering Tool</h4>
+            <p>AI-powered tool for intelligent engineering data analysis and automation.</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="{{ url_for('static', filename='images/svc-ai2.jpg') }}" alt="AI Solutions 2">
+          <div class="gallery-info">
+            <h4>Data Analytics Dashboard</h4>
+            <p>Custom data analytics dashboard for engineering project monitoring and reporting.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tools">
+        <span>Python</span><span>AI</span><span>Data Analytics</span><span>Automation</span>
       </div>
     </div>
   </div>

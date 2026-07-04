@@ -14,19 +14,34 @@ function toggleNav() {
 }
 
 // =========================
-// NAV LINKS - CLICK & SCROLL
+// NAV LINKS - INSTANT JUMP
 // =========================
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('section');
 
 navLinks.forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Remove active from all then add to clicked
     navLinks.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
+
+    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
+
+    // Instant jump - no smooth scroll
+    const targetId = link.getAttribute('href').replace('#', '');
+    const target = document.getElementById(targetId);
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 70, behavior: 'instant' });
+    }
   });
 });
 
+// =========================
+// ACTIVE NAV LINK ON SCROLL
+// =========================
 window.addEventListener('scroll', () => {
   let current = '';
   const scrollY = window.scrollY;
@@ -66,7 +81,6 @@ function closeModal(id) {
   document.body.style.overflow = '';
 }
 
-// Close modal when clicking outside
 document.querySelectorAll('.modal').forEach(modal => {
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -83,13 +97,10 @@ let currentGallery = [];
 let currentIndex = 0;
 
 function openLightbox(item) {
-  // Get all gallery items in the same modal
   const modal = item.closest('.modal-box');
   const allItems = modal.querySelectorAll('.gallery-item');
-
   currentGallery = Array.from(allItems);
   currentIndex = currentGallery.indexOf(item);
-
   showLightboxImage(currentIndex);
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -100,7 +111,6 @@ function showLightboxImage(index) {
   const img = item.querySelector('img');
   const title = item.querySelector('h4').innerText;
   const desc = item.querySelector('p').innerText;
-
   document.getElementById('lightbox-img').src = img.src;
   document.getElementById('lightbox-title').innerText = title;
   document.getElementById('lightbox-desc').innerText = desc;
@@ -123,7 +133,6 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-// Arrow keys to navigate lightbox
 document.addEventListener('keydown', (e) => {
   if (document.getElementById('lightbox').classList.contains('active')) {
     if (e.key === 'ArrowLeft') prevImage(e);

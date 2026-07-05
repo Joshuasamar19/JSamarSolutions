@@ -1,9 +1,11 @@
 // =========================
 // NAVBAR SCROLL
 // =========================
+const wrapper = document.getElementById('page-wrapper');
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+wrapper.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', wrapper.scrollTop > 40);
 });
 
 // =========================
@@ -23,18 +25,14 @@ navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Remove active from all then add to clicked
     navLinks.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
-
-    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
 
-    // Instant jump - no smooth scroll
     const targetId = link.getAttribute('href').replace('#', '');
     const target = document.getElementById(targetId);
     if (target) {
-      window.scrollTo({ top: target.offsetTop - 70, behavior: 'instant' });
+      target.scrollIntoView({ behavior: 'instant' });
     }
   });
 });
@@ -42,19 +40,19 @@ navLinks.forEach(link => {
 // =========================
 // ACTIVE NAV LINK ON SCROLL
 // =========================
-window.addEventListener('scroll', () => {
+wrapper.addEventListener('scroll', () => {
   let current = '';
-  const scrollY = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.documentElement.scrollHeight;
+  const scrollTop = wrapper.scrollTop;
+  const wrapperHeight = wrapper.clientHeight;
+  const wrapperScroll = wrapper.scrollHeight;
 
-  if (scrollY + windowHeight >= docHeight - 10) {
+  if (scrollTop + wrapperHeight >= wrapperScroll - 10) {
     current = 'contact';
   } else {
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 150;
       const sectionBottom = sectionTop + section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionBottom) {
+      if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
         current = section.getAttribute('id');
       }
     });
@@ -170,4 +168,4 @@ revealEls.forEach(el => observer.observe(el));
 // =========================
 // SCROLL TO TOP ON REFRESH
 // =========================
-window.onbeforeunload = () => window.scrollTo(0, 0);
+window.onbeforeunload = () => wrapper.scrollTo(0, 0);

@@ -2,7 +2,6 @@
 /* RESET & BASE              */
 /* ========================= */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: auto !important; }
 
 :root {
   --bg:     #050b18;
@@ -15,11 +14,51 @@ html { scroll-behavior: auto !important; }
   --light:  #b8cfe0;
 }
 
+/* ========================= */
+/* FULL PAGE SCROLL LOCK     */
+/* ========================= */
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--white);
   overflow-x: hidden;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+/* MAIN WRAPPER - this is what scrolls */
+.page-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.page-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* EACH SECTION SNAPS */
+section, .hero {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+}
+
+section::-webkit-scrollbar,
+.hero::-webkit-scrollbar {
+  display: none;
 }
 
 body::before {
@@ -38,11 +77,10 @@ body::after {
 }
 
 .container {
-  max-width: 1080px; margin: 0 auto; padding: 0 2rem;
-  max-height: 88vh; overflow-y: auto;
-  scrollbar-width: none;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
-.container::-webkit-scrollbar { display: none; }
 
 /* ========================= */
 /* NAVBAR                    */
@@ -92,7 +130,6 @@ body::after {
 /* HERO                      */
 /* ========================= */
 .hero {
-  min-height: 100vh !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-end !important;
@@ -102,7 +139,7 @@ body::after {
   background:
     linear-gradient(to bottom, rgba(5,11,24,0.1) 0%, rgba(5,11,24,0.6) 100%),
     url("/static/images/background.png") center/cover no-repeat !important;
-  position: relative; overflow: hidden;
+  overflow: hidden !important;
 }
 
 .hero-bottom {
@@ -161,10 +198,9 @@ body::after {
 .btn-outline.full { width: 100%; text-align: center; display: block; }
 
 /* ========================= */
-/* SECTIONS - FULL SCREEN    */
+/* SECTIONS                  */
 /* ========================= */
 .section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -380,6 +416,7 @@ body::after {
 /* FOOTER                    */
 /* ========================= */
 .footer {
+  scroll-snap-align: start;
   text-align: center; padding: 1.5rem;
   font-size: 0.78rem; color: var(--gray);
   border-top: 1px solid var(--border);
@@ -539,8 +576,6 @@ body::after {
   .svc p { font-size: 0.6rem; }
 
   .section { padding: 70px 0; }
-  .container { max-height: 85vh; }
-
   .projects-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-stats { grid-template-columns: 1fr 1fr; }
@@ -565,83 +600,4 @@ body::after {
 @media (max-width: 400px) {
   .about-intro .hero-name { font-size: 0.95rem !important; }
   .logo-text { display: none; }
-}
-
-/* ========================= */
-/* FIX SECTION OVERFLOW      */
-/* ========================= */
-.container {
-  max-height: none !important;
-  overflow-y: visible !important;
-}
-
-section {
-  overflow: hidden !important;
-}
-
-.section {
-  overflow: hidden !important;
-}
-
-/* ========================= */
-/* PREVENT SECTION OVERFLOW  */
-/* ========================= */
-html {
-  overflow-y: scroll !important;
-  scroll-snap-type: none !important;
-}
-
-section, .section {
-  overflow: hidden !important;
-  max-height: 100vh !important;
-}
-
-.container {
-  max-height: 88vh !important;
-  overflow-y: auto !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-
-.container::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* Hero never clips */
-.hero {
-  max-height: 100vh !important;
-  overflow: hidden !important;
-}
-
-/* ========================= */
-/* FINAL SECTION FIX         */
-/* ========================= */
-html, body {
-  overflow-y: auto !important;
-  scroll-behavior: auto !important;
-}
-
-section, .section {
-  min-height: 100vh !important;
-  max-height: 100vh !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-
-section::-webkit-scrollbar,
-.section::-webkit-scrollbar {
-  display: none !important;
-}
-
-.container {
-  max-height: none !important;
-  overflow: visible !important;
-}
-
-.hero {
-  min-height: 100vh !important;
-  max-height: 100vh !important;
-  overflow: hidden !important;
 }

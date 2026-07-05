@@ -713,3 +713,41 @@ section.active-section::-webkit-scrollbar,
     padding-top: 65px !important;
   }
 }
+
+/* ========================= */
+/* MOBILE TOP VISIBILITY FIX */
+/* ========================= */
+@media (max-width: 768px) {
+  section.active-section,
+  .section.active-section {
+    padding-top: 75px !important;
+  }
+
+  .hero.active-section {
+    padding-top: 0 !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .about-intro {
+    padding-top: 1rem !important;
+  }
+}
+
+/* ========================= */
+/* FIX TOP CONTENT HIDDEN    */
+/* ========================= */
+section.active-section,
+.section.active-section {
+  padding-top: 80px !important;
+}
+
+.hero.active-section {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  section.active-section,
+  .section.active-section {
+    padding-top: 70px !important;
+  }
+}

@@ -649,3 +649,67 @@ section.active-section::-webkit-scrollbar,
 .hero.active-section::-webkit-scrollbar {
   display: none !important;
 }
+
+/* ========================= */
+/* MOBILE SECTION FIX        */
+/* ========================= */
+@media (max-width: 768px) {
+  section.active-section,
+  .section.active-section,
+  .hero.active-section {
+    height: 100vh !important;
+    height: 100dvh !important; /* Dynamic viewport height for mobile */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-top: 70px !important; /* Account for navbar */
+    scrollbar-width: none !important;
+  }
+
+  section.active-section::-webkit-scrollbar,
+  .section.active-section::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .section {
+    padding: 20px 0 40px !important;
+  }
+
+  .container {
+    padding: 0 1rem !important;
+  }
+
+  /* About section mobile */
+  .about-intro {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Experience mobile */
+  .timeline-card {
+    padding: 1rem !important;
+  }
+
+  /* Skills mobile */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Projects mobile */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Contact mobile */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  section.active-section,
+  .section.active-section {
+    padding-top: 65px !important;
+  }
+}

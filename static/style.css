@@ -566,3 +566,82 @@ body::after {
   .about-intro .hero-name { font-size: 0.95rem !important; }
   .logo-text { display: none; }
 }
+
+/* ========================= */
+/* FIX SECTION OVERFLOW      */
+/* ========================= */
+.container {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
+section {
+  overflow: hidden !important;
+}
+
+.section {
+  overflow: hidden !important;
+}
+
+/* ========================= */
+/* PREVENT SECTION OVERFLOW  */
+/* ========================= */
+html {
+  overflow-y: scroll !important;
+  scroll-snap-type: none !important;
+}
+
+section, .section {
+  overflow: hidden !important;
+  max-height: 100vh !important;
+}
+
+.container {
+  max-height: 88vh !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.container::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hero never clips */
+.hero {
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* ========================= */
+/* FINAL SECTION FIX         */
+/* ========================= */
+html, body {
+  overflow-y: auto !important;
+  scroll-behavior: auto !important;
+}
+
+section, .section {
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+section::-webkit-scrollbar,
+.section::-webkit-scrollbar {
+  display: none !important;
+}
+
+.container {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.hero {
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}

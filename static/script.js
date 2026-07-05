@@ -4,13 +4,13 @@
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-// Show first section on load
 function showSection(id) {
   sections.forEach(s => s.classList.remove('active-section'));
   const target = document.getElementById(id);
-  if (target) target.classList.add('active-section');
-
-  // Update active nav link
+  if (target) {
+    target.classList.add('active-section');
+    target.scrollTop = 0;
+  }
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + id) {
@@ -19,35 +19,71 @@ function showSection(id) {
   });
 }
 
-// Show home on load
 window.addEventListener('load', () => {
   showSection('home');
 });
 
 // =========================
-// DISABLE ALL SCROLL
+// BLOCK SCROLL BETWEEN SECTIONS
+// BUT ALLOW INSIDE SECTION
 // =========================
 window.addEventListener('wheel', (e) => {
-  if (!document.querySelector('.modal.active') &&
-      !document.getElementById('lightbox').classList.contains('active')) {
-    e.preventDefault();
+  // Allow inside modals and lightbox
+  if (document.querySelector('.modal.active') ||
+      document.getElementById('lightbox').classList.contains('active')) {
+    return;
   }
+
+  const activeSection = document.querySelector('section.active-section');
+  if (!activeSection) return;
+
+  // Let the section handle its own scroll
+  // Only block if section itself doesn't scroll
+  const canScrollDown = activeSection.scrollHeight > activeSection.clientHeight &&
+                        activeSection.scrollTop + activeSection.clientHeight < activeSection.scrollHeight;
+  const canScrollUp = activeSection.scrollTop > 0;
+
+  if (e.deltaY > 0 && !canScrollDown) {
+    e.preventDefault(); // Block scrolling to next section
+  } else if (e.deltaY < 0 && !canScrollUp) {
+    e.preventDefault(); // Block scrolling to prev section
+  }
+  // Otherwise let section scroll normally
 }, { passive: false });
+
+// Block touch scroll between sections
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY;
+});
 
 window.addEventListener('touchmove', (e) => {
-  if (!document.querySelector('.modal.active') &&
-      !document.getElementById('lightbox').classList.contains('active')) {
+  if (document.querySelector('.modal.active') ||
+      document.getElementById('lightbox').classList.contains('active')) {
+    return;
+  }
+
+  const activeSection = document.querySelector('section.active-section');
+  if (!activeSection) return;
+
+  const touchY = e.touches[0].clientY;
+  const direction = touchStartY - touchY;
+
+  const canScrollDown = activeSection.scrollHeight > activeSection.clientHeight &&
+                        activeSection.scrollTop + activeSection.clientHeight < activeSection.scrollHeight;
+  const canScrollUp = activeSection.scrollTop > 0;
+
+  if (direction > 0 && !canScrollDown) {
+    e.preventDefault();
+  } else if (direction < 0 && !canScrollUp) {
     e.preventDefault();
   }
 }, { passive: false });
 
 // =========================
-// NAVBAR SCROLL STYLE
+// NAVBAR STYLE
 // =========================
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
 navbar.classList.add('scrolled');
 
 // =========================
@@ -69,7 +105,7 @@ navLinks.forEach(link => {
   });
 });
 
-// Also handle hero buttons
+// Handle hero buttons (View Projects, Hire Me)
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();

@@ -632,3 +632,20 @@ section.active-section, .section.active-section, .hero.active-section {
   opacity: 1 !important;
   z-index: 1 !important;
 }
+
+/* ========================= */
+/* ALLOW INTERNAL SCROLL     */
+/* ========================= */
+section.active-section,
+.section.active-section,
+.hero.active-section {
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+section.active-section::-webkit-scrollbar,
+.section.active-section::-webkit-scrollbar,
+.hero.active-section::-webkit-scrollbar {
+  display: none !important;
+}

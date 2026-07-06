@@ -5,12 +5,20 @@ const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 function showSection(id) {
-  sections.forEach(s => s.classList.remove('active-section'));
+  sections.forEach(s => {
+    s.classList.remove('active-section');
+    s.scrollTop = 0;
+  });
+
   const target = document.getElementById(id);
   if (target) {
     target.classList.add('active-section');
-    target.scrollTop = 0;
+    // Small delay so CSS padding applies first then scroll to top
+    setTimeout(() => {
+      target.scrollTop = 0;
+    }, 10);
   }
+
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + id) {
@@ -19,16 +27,16 @@ function showSection(id) {
   });
 }
 
+// Show home on load
 window.addEventListener('load', () => {
   showSection('home');
 });
 
 // =========================
-// BLOCK SCROLL BETWEEN SECTIONS
+// DISABLE SCROLL BETWEEN SECTIONS
 // BUT ALLOW INSIDE SECTION
 // =========================
 window.addEventListener('wheel', (e) => {
-  // Allow inside modals and lightbox
   if (document.querySelector('.modal.active') ||
       document.getElementById('lightbox').classList.contains('active')) {
     return;
@@ -37,21 +45,14 @@ window.addEventListener('wheel', (e) => {
   const activeSection = document.querySelector('section.active-section');
   if (!activeSection) return;
 
-  // Let the section handle its own scroll
-  // Only block if section itself doesn't scroll
-  const canScrollDown = activeSection.scrollHeight > activeSection.clientHeight &&
-                        activeSection.scrollTop + activeSection.clientHeight < activeSection.scrollHeight;
-  const canScrollUp = activeSection.scrollTop > 0;
+  const atBottom = activeSection.scrollTop + activeSection.clientHeight >= activeSection.scrollHeight - 5;
+  const atTop = activeSection.scrollTop <= 0;
 
-  if (e.deltaY > 0 && !canScrollDown) {
-    e.preventDefault(); // Block scrolling to next section
-  } else if (e.deltaY < 0 && !canScrollUp) {
-    e.preventDefault(); // Block scrolling to prev section
+  if ((e.deltaY > 0 && atBottom) || (e.deltaY < 0 && atTop)) {
+    e.preventDefault();
   }
-  // Otherwise let section scroll normally
 }, { passive: false });
 
-// Block touch scroll between sections
 let touchStartY = 0;
 window.addEventListener('touchstart', (e) => {
   touchStartY = e.touches[0].clientY;
@@ -69,13 +70,10 @@ window.addEventListener('touchmove', (e) => {
   const touchY = e.touches[0].clientY;
   const direction = touchStartY - touchY;
 
-  const canScrollDown = activeSection.scrollHeight > activeSection.clientHeight &&
-                        activeSection.scrollTop + activeSection.clientHeight < activeSection.scrollHeight;
-  const canScrollUp = activeSection.scrollTop > 0;
+  const atBottom = activeSection.scrollTop + activeSection.clientHeight >= activeSection.scrollHeight - 5;
+  const atTop = activeSection.scrollTop <= 0;
 
-  if (direction > 0 && !canScrollDown) {
-    e.preventDefault();
-  } else if (direction < 0 && !canScrollUp) {
+  if ((direction > 0 && atBottom) || (direction < 0 && atTop)) {
     e.preventDefault();
   }
 }, { passive: false });
@@ -105,7 +103,7 @@ navLinks.forEach(link => {
   });
 });
 
-// Handle hero buttons (View Projects, Hire Me)
+// Handle hero buttons
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();

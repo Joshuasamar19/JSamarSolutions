@@ -5,18 +5,24 @@ const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 function showSection(id) {
-  sections.forEach(s => {
-    s.classList.remove('active-section');
-    s.scrollTop = 0;
+  sections.forEach(section => {
+    section.classList.remove('active-section');
+    section.scrollTop = 0;
   });
 
   const target = document.getElementById(id);
   if (target) {
     target.classList.add('active-section');
-    // Small delay so CSS padding applies first then scroll to top
-    setTimeout(() => {
+
+    // Mobile in-app browsers can restore the old position after layout.
+    const resetToTop = () => {
       target.scrollTop = 0;
-    }, 10);
+      target.scrollTo(0, 0);
+    };
+
+    resetToTop();
+    requestAnimationFrame(resetToTop);
+    setTimeout(resetToTop, 100);
   }
 
   navLinks.forEach(link => {

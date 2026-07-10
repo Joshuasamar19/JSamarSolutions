@@ -485,6 +485,7 @@ section.active-section {
 .gallery-info { padding: 0.8rem 1rem; }
 .gallery-info h4 { font-size: 0.82rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
 .gallery-info p { font-size: 0.72rem; color: var(--gray); line-height: 1.55; margin: 0; }
+.gallery-info .process-list { font-size: 0.72rem; color: var(--gray); line-height: 1.55; margin: 0; padding-left: 1rem; }
 
 /* ========================= */
 /* LIGHTBOX                  */

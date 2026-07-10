@@ -191,7 +191,7 @@ section.active-section {
 .section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: 3rem;
 }
 
@@ -658,7 +658,6 @@ section.active-section {
 
   /* FIX TOP VISIBILITY - all sections */
   section { padding-top: 65px; }
-  .section { justify-content: flex-start; }
   .hero { padding-top: 0 !important; }
 
   .svc { min-width: 70px; padding: 10px 12px; }

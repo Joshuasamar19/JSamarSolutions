@@ -636,6 +636,11 @@ section.active-section {
   color: var(--cyan); text-decoration: none; font-weight: 600;
 }
 .passcode-help a:hover { text-decoration: underline; }
+
+/* ========================= */
+/* RESPONSIVE - MOBILE       */
+/* ========================= */
+@media (max-width: 900px) {
   .projects-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .skills-grid { grid-template-columns: 1fr; }

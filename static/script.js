@@ -161,7 +161,10 @@ function showLightboxImage(index) {
   const item = currentGallery[index];
   const img = item.querySelector('img');
   const title = item.querySelector('h4').innerText;
-  const desc = item.querySelector('p').innerText;
+  const description = item.querySelector('.gallery-info p, .gallery-info .process-list');
+  const desc = description?.classList.contains('process-list')
+    ? Array.from(description.querySelectorAll('li')).map(step => `• ${step.innerText}`).join('\n')
+    : description?.innerText || '';
   document.getElementById('lightbox-img').src = img.src;
   document.getElementById('lightbox-title').innerText = title;
   document.getElementById('lightbox-desc').innerText = desc;

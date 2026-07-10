@@ -585,6 +585,7 @@ section.active-section {
   .logo-text { display: none; }
   .about-intro .hero-name { font-size: 1rem; }
 }
+
 /* ========================= */
 /* RESET & BASE              */
 /* ========================= */
@@ -1171,3 +1172,10 @@ section.active-section {
   .logo-text { display: none; }
   .about-intro .hero-name { font-size: 1rem; }
 }
+
+/* Larger gallery image viewer */
+.lightbox { padding: 1rem; }
+.lightbox-content { max-width: 1200px; }
+.lightbox-content img { max-height: 78vh; }
+.lightbox-info { max-width: 900px; }
+.lightbox-info p { white-space: pre-line; line-height: 1.6; }

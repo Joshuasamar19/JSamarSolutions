@@ -105,7 +105,7 @@ navLinks.forEach(link => {
     e.preventDefault();
     document.getElementById('navLinks').classList.remove('open');
     const targetId = link.getAttribute('href').replace('#', '');
-    showSection(targetId);
+    goToSection(targetId);
   });
 });
 
@@ -115,9 +115,66 @@ document.querySelectorAll('a[href^="#"]:not(.nav-links a)').forEach(link => {
     e.preventDefault();
     const targetId = link.getAttribute('href').replace('#', '');
     if (document.getElementById(targetId)) {
-      showSection(targetId);
+      goToSection(targetId);
     }
   });
+});
+
+// =========================
+// PASSCODE GATE (client-side only — change the code below)
+// =========================
+const PROJECTS_PASSCODE = '2026';
+let projectsUnlocked = false;
+let pendingSection = null;
+
+function goToSection(targetId) {
+  if (targetId === 'projects' && !projectsUnlocked) {
+    pendingSection = targetId;
+    openPasscodeGate();
+    return;
+  }
+  showSection(targetId);
+}
+
+function openPasscodeGate() {
+  const gate = document.getElementById('passcode-gate');
+  const input = document.getElementById('passcode-input');
+  const error = document.getElementById('passcode-error');
+  error.classList.remove('show');
+  input.value = '';
+  gate.classList.add('active');
+  setTimeout(() => input.focus(), 50);
+}
+
+function closePasscodeGate() {
+  document.getElementById('passcode-gate').classList.remove('active');
+  pendingSection = null;
+}
+
+function checkPasscode() {
+  const input = document.getElementById('passcode-input');
+  const error = document.getElementById('passcode-error');
+
+  if (input.value === PROJECTS_PASSCODE) {
+    projectsUnlocked = true;
+    document.getElementById('passcode-gate').classList.remove('active');
+    if (pendingSection) {
+      showSection(pendingSection);
+      pendingSection = null;
+    }
+  } else {
+    error.classList.add('show');
+    input.value = '';
+    input.focus();
+  }
+}
+
+document.getElementById('passcode-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') checkPasscode();
+});
+
+document.getElementById('passcode-gate').addEventListener('click', (e) => {
+  if (e.target.id === 'passcode-gate') closePasscodeGate();
 });
 
 // =========================
@@ -199,6 +256,49 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// =========================
+// CONTACT FORM
+// =========================
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = document.getElementById('cf-submit');
+    const status = document.getElementById('cf-status');
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    status.textContent = '';
+    status.className = 'contact-form-status';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch('/send-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (response.ok) {
+        status.textContent = 'Message sent! I\'ll get back to you soon.';
+        status.classList.add('success');
+        contactForm.reset();
+      } else {
+        status.textContent = 'Something went wrong. Please try again.';
+        status.classList.add('error');
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+      status.classList.add('error');
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  });
+}
 
 // =========================
 // REVEAL ANIMATION

@@ -109,8 +109,8 @@ navLinks.forEach(link => {
   });
 });
 
-// Handle hero buttons
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+// Handle hero buttons (excludes .nav-links a, which are already bound above)
+document.querySelectorAll('a[href^="#"]:not(.nav-links a)').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const targetId = link.getAttribute('href').replace('#', '');

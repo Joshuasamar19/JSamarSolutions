@@ -1,15 +1,16 @@
 import os
-import smtplib
-from email.mime.text import MIMEText
+import requests
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Set these two as environment variables — never hardcode them in the file.
-# GMAIL_USER = the Gmail address you want to send FROM and receive at
-# GMAIL_APP_PASSWORD = the 16-character App Password from Google (not your normal password)
-GMAIL_USER = os.environ.get('GMAIL_USER')
-GMAIL_APP_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
+# Set these as environment variables — never hardcode them in the file.
+# SENDGRID_API_KEY = the API key from SendGrid (Settings > API Keys)
+# SENDGRID_FROM_EMAIL = the email you verified in SendGrid (Single Sender Verification)
+# CONTACT_TO_EMAIL = where you want messages delivered (usually your own inbox)
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+SENDGRID_FROM_EMAIL = os.environ.get('SENDGRID_FROM_EMAIL')
+CONTACT_TO_EMAIL = os.environ.get('CONTACT_TO_EMAIL', SENDGRID_FROM_EMAIL)
 
 
 @app.route('/')
@@ -27,21 +28,34 @@ def send_message():
     if not name or not email or not message:
         return jsonify({'error': 'Missing fields'}), 400
 
-    if not GMAIL_USER or not GMAIL_APP_PASSWORD:
+    if not SENDGRID_API_KEY or not SENDGRID_FROM_EMAIL:
         return jsonify({'error': 'Email is not configured on the server'}), 500
 
     body = f"New message from your portfolio contact form:\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
-    msg = MIMEText(body)
-    msg['Subject'] = f'Portfolio contact from {name}'
-    msg['From'] = GMAIL_USER
-    msg['To'] = GMAIL_USER
-    msg['Reply-To'] = email
+
+    payload = {
+        "personalizations": [{
+            "to": [{"email": CONTACT_TO_EMAIL}],
+            "subject": f"Portfolio contact from {name}"
+        }],
+        "from": {"email": SENDGRID_FROM_EMAIL},
+        "reply_to": {"email": email},
+        "content": [{"type": "text/plain", "value": body}]
+    }
 
     try:
-        with smtplib.SMTP('smtp.gmail.com', 587) as server:
-            server.starttls()
-            server.login(GMAIL_USER, GMAIL_APP_PASSWORD)
-            server.sendmail(GMAIL_USER, [GMAIL_USER], msg.as_string())
+        response = requests.post(
+            "https://api.sendgrid.com/v3/mail/send",
+            headers={
+                "Authorization": f"Bearer {SENDGRID_API_KEY}",
+                "Content-Type": "application/json"
+            },
+            json=payload,
+            timeout=10
+        )
+        if response.status_code not in (200, 202):
+            print('SendGrid error:', response.status_code, response.text)
+            return jsonify({'error': 'Failed to send message'}), 500
     except Exception as e:
         print('Email send failed:', e)
         return jsonify({'error': 'Failed to send message'}), 500

@@ -38,7 +38,7 @@ def send_message():
             "to": [{"email": CONTACT_TO_EMAIL}],
             "subject": f"Portfolio contact from {name}"
         }],
-        "from": {"email": SENDGRID_FROM_EMAIL},
+        "from": {"email": SENDGRID_FROM_EMAIL, "name": f"{name} (via Portfolio Site)"},
         "reply_to": {"email": email},
         "content": [{"type": "text/plain", "value": body}]
     }

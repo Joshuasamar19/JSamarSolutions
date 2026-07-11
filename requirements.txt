@@ -1,4 +1,4 @@
-flask
-gunicorn
-requests
+Flask
+Flask-Limiter
 python-dotenv
+requests

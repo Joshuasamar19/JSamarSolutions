@@ -1,0 +1,129 @@
+<div class="projects-grid">
+  <div class="project-card" onclick="openModal('modal-bim')">
+    <div class="project-top">
+      <span class="project-icon">🏗️</span>
+      <span class="project-tag">BIM</span>
+    </div>
+    <h3>MEP Electrical BIM Design</h3>
+    <p>Professional electrical BIM modeling using Revit MEP with Evolve add-in. Click to see portfolio.</p>
+    <div class="project-tools">
+      <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>ACC</span>
+    </div>
+    <p class="project-click">👆 Click to view portfolio</p>
+  </div>
+  <div class="project-card" onclick="openModal('modal-electrical')">
+    <div class="project-top">
+      <span class="project-icon">⚡</span>
+      <span class="project-tag">Electrical</span>
+    </div>
+    <h3>Electrical Control Systems</h3>
+    <p>Designed and optimized industrial electrical control systems at Cargill. Click to see portfolio.</p>
+    <div class="project-tools">
+      <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
+    </div>
+    <p class="project-click">👆 Click to view portfolio</p>
+  </div>
+  <div class="project-card" onclick="openModal('modal-python')">
+    <div class="project-top">
+      <span class="project-icon">💻</span>
+      <span class="project-tag">Automation</span>
+    </div>
+    <h3>Python Automation Tools</h3>
+    <p>Python applications for engineering workflow automation and AI integration. Click to see portfolio.</p>
+    <div class="project-tools">
+      <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+    </div>
+    <p class="project-click">👆 Click to view portfolio</p>
+  </div>
+</div>
+
+<!-- MODAL: BIM -->
+<div class="modal" id="modal-bim">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-bim')">✕</button>
+    <h2 class="modal-title">🏗️ MEP Electrical BIM Design</h2>
+    <p class="modal-desc">Professional electrical BIM modeling using Revit MEP with Evolve add-in. Includes clash detection via Navisworks and coordination through Autodesk Construction Cloud.</p>
+    <div class="modal-gallery">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/bim1.jpg" alt="BIM Project 1">
+        <div class="gallery-info">
+          <h4>Core Shell Project</h4>
+          <p>Full electrical build-out for a core-and-shell commercial development, from panel schedules to lighting and power layouts. Modeled end-to-end in Revit MEP with the Evolve add-in for precise, code-compliant documentation ready for tenant fit-out coordination.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/bim2.jpg" alt="BIM Project 2">
+        <div class="gallery-info">
+          <h4>UKCC Center Project</h4>
+          <p>Multidisciplinary clash detection for the UKCC Center, running Navisworks reviews across electrical, mechanical, and structural models to catch conflicts before they reached the field. Coordinated resolutions directly with the design team through Autodesk Construction Cloud, keeping the project ahead of schedule.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/bim3.jpg" alt="BIM Project 3">
+        <div class="gallery-info">
+          <h4>TCAT Project</h4>
+          <p>Construction-ready BIM coordination drawings for the TCAT project, merging electrical models with architectural and structural disciplines into a single accurate deliverable. Reviewed, refined, and submitted through Autodesk Construction Cloud for a clean handoff to the field team.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>BIM 360</span><span>ACC</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ELECTRICAL -->
+<div class="modal" id="modal-electrical">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-electrical')">✕</button>
+    <h2 class="modal-title">⚡ Electrical Control Systems</h2>
+    <p class="modal-desc">Designed and optimized industrial electrical control systems at Cargill. Improved efficiency and reliability through automation and system troubleshooting.</p>
+    <div class="modal-gallery">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical1.jpg" alt="Electrical Project 1">
+        <div class="gallery-info">
+          <h4>Control Panel Design</h4>
+          <p>Industrial electrical control panel designed for process automation at Cargill facility.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical2.jpg" alt="Electrical Project 2">
+        <div class="gallery-info">
+          <h4>Power Distribution System</h4>
+          <p>Power distribution layout and single line diagram for industrial plant operations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: PYTHON -->
+<div class="modal" id="modal-python">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-python')">✕</button>
+    <h2 class="modal-title">💻 Python Automation Tools</h2>
+    <p class="modal-desc">Python applications for engineering workflow automation, AI integration, and data processing. Built tools to streamline documentation and reporting processes.</p>
+    <div class="modal-gallery">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python1.png" alt="Python Project 1">
+        <div class="gallery-info">
+          <h4>Automation Script Dashboard</h4>
+          <p>Python-based automation tool for generating engineering reports and data processing.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python2.png" alt="Python Project 2">
+        <div class="gallery-info">
+          <h4>AI Integration Tool</h4>
+          <p>AI-powered workflow tool built with Python for engineering data analysis and automation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+    </div>
+  </div>
+</div>

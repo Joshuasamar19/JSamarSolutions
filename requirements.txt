@@ -2,3 +2,4 @@ Flask
 Flask-Limiter
 python-dotenv
 requests
+gunicorn

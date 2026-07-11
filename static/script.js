@@ -85,12 +85,6 @@ window.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 // =========================
-// NAVBAR STYLE
-// =========================
-const navbar = document.getElementById('navbar');
-navbar.classList.add('scrolled');
-
-// =========================
 // MOBILE NAV TOGGLE
 // =========================
 function toggleNav() {
@@ -121,9 +115,12 @@ document.querySelectorAll('a[href^="#"]:not(.nav-links a)').forEach(link => {
 });
 
 // =========================
-// PASSCODE GATE (client-side only — change the code below)
+// PASSCODE GATE (server-side auth)
+// The real passcode never ships to the browser. Every check is a
+// network call to /check-passcode, which sets a signed session
+// cookie on success. Project content and images are then fetched
+// from routes that require that session — see loadProjectsContent().
 // =========================
-const PROJECTS_PASSCODE = '2026';
 let projectsUnlocked = false;
 let pendingSection = null;
 
@@ -141,6 +138,7 @@ function openPasscodeGate() {
   const input = document.getElementById('passcode-input');
   const error = document.getElementById('passcode-error');
   error.classList.remove('show');
+  error.textContent = 'Incorrect passcode. Try again.';
   input.value = '';
   gate.classList.add('active');
   setTimeout(() => input.focus(), 50);
@@ -151,21 +149,107 @@ function closePasscodeGate() {
   pendingSection = null;
 }
 
-function checkPasscode() {
+async function checkPasscode() {
   const input = document.getElementById('passcode-input');
   const error = document.getElementById('passcode-error');
+  const unlockBtn = document.querySelector('#passcode-gate .btn-primary');
 
-  if (input.value === PROJECTS_PASSCODE) {
-    projectsUnlocked = true;
-    document.getElementById('passcode-gate').classList.remove('active');
-    if (pendingSection) {
-      showSection(pendingSection);
-      pendingSection = null;
+  error.classList.remove('show');
+  unlockBtn.disabled = true;
+  unlockBtn.textContent = 'Checking...';
+
+  try {
+    const response = await fetch('/check-passcode', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode: input.value })
+    });
+
+    if (response.ok) {
+      const loaded = await loadProjectsContent();
+      if (loaded) {
+        projectsUnlocked = true;
+        document.getElementById('passcode-gate').classList.remove('active');
+        if (pendingSection) {
+          showSection(pendingSection);
+          pendingSection = null;
+        }
+      } else {
+        error.textContent = 'Something went wrong loading the projects. Please try again.';
+        error.classList.add('show');
+      }
+    } else if (response.status === 429) {
+      error.textContent = 'Too many attempts. Please wait a moment and try again.';
+      error.classList.add('show');
+      input.value = '';
+    } else {
+      error.textContent = 'Incorrect passcode. Try again.';
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
     }
-  } else {
+  } catch (err) {
+    error.textContent = 'Network error. Please try again.';
     error.classList.add('show');
-    input.value = '';
-    input.focus();
+  }
+
+  unlockBtn.disabled = false;
+  unlockBtn.textContent = 'Unlock';
+}
+
+// Fetches the confidential Projects markup (cards + modals + protected
+// image URLs) and injects it into the page. This only succeeds if the
+// server session was just authorized by /check-passcode.
+async function loadProjectsContent() {
+  try {
+    const response = await fetch('/projects-content');
+    if (!response.ok) return false;
+
+    const html = await response.text();
+    const container = document.getElementById('projects-container');
+    container.innerHTML = html;
+
+    bindDynamicProjectHandlers();
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
+// Modal-backdrop-click-to-close and the reveal-on-scroll animation are
+// normally wired up once at page load. Since project cards/modals are
+// injected later, re-run that wiring for the newly added elements.
+function bindDynamicProjectHandlers() {
+  document.querySelectorAll('#projects-container .modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  document.querySelectorAll('#projects-container .project-card').forEach(card => {
+    card.classList.add('reveal', 'show');
+  });
+}
+
+// On page load, ask the server whether this browser's session is
+// already unlocked (e.g. the user refreshed after unlocking earlier).
+// If so, silently load the content so they don't have to re-enter
+// the passcode every reload.
+async function checkExistingSession() {
+  try {
+    const response = await fetch('/projects-status');
+    if (!response.ok) return;
+    const data = await response.json();
+    if (data.unlocked) {
+      const loaded = await loadProjectsContent();
+      if (loaded) projectsUnlocked = true;
+    }
+  } catch (err) {
+    // Fail silently — user will just be prompted for the passcode
+    // when they try to open Projects.
   }
 }
 
@@ -175,6 +259,10 @@ document.getElementById('passcode-input').addEventListener('keydown', (e) => {
 
 document.getElementById('passcode-gate').addEventListener('click', (e) => {
   if (e.target.id === 'passcode-gate') closePasscodeGate();
+});
+
+window.addEventListener('load', () => {
+  checkExistingSession();
 });
 
 // =========================

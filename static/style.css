@@ -257,6 +257,13 @@ section.active-section {
 .detail { display: flex; flex-direction: column; gap: 2px; }
 .detail-label { font-size: 0.72rem; font-weight: 600; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; }
 .detail span:last-child { font-size: 0.88rem; color: var(--light); }
+.detail a {
+  font-size: 0.88rem; color: var(--light);
+  text-decoration: none; border-bottom: 1px dashed var(--border);
+  transition: color 0.2s, border-color 0.2s;
+  width: fit-content;
+}
+.detail a:hover { color: var(--cyan); border-color: var(--cyan); }
 
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .stat {

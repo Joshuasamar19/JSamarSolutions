@@ -278,6 +278,32 @@ section.active-section {
 }
 .detail a:hover { color: var(--cyan); border-color: var(--cyan); }
 
+.verify-link {
+  display: flex !important;
+  flex-direction: column;
+  gap: 3px;
+  border-bottom: none !important;
+}
+.verify-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(56,189,248,0.1);
+  border: 1px solid rgba(56,189,248,0.3);
+  border-radius: 100px;
+  padding: 3px 10px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, border-color 0.2s;
+}
+.verify-link:hover .verify-badge {
+  background: rgba(56,189,248,0.2);
+  border-color: var(--cyan);
+}
+
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .stat {
   display: flex; flex-direction: column; align-items: center;

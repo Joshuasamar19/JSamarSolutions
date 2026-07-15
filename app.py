@@ -53,6 +53,10 @@ app.config.update(
     SESSION_COOKIE_SECURE=os.environ.get('FLASK_ENV') == 'production',
 )
 
+# This global default only applies to routes that don't set their
+# own @limiter.limit(...). It's intentionally tight — it exists to
+# catch anything we forgot to think about, not to be the main
+# defense on any specific route.
 limiter = Limiter(
     get_remote_address,
     app=app,
@@ -163,6 +167,7 @@ def check_passcode():
 
 
 @app.route('/projects-status')
+@limiter.limit("100 per hour")
 def projects_status():
     """Lets the frontend check, on page load, whether this browser
     session is already unlocked (e.g. after a refresh)."""
@@ -170,6 +175,7 @@ def projects_status():
 
 
 @app.route('/projects-content')
+@limiter.limit("100 per hour")
 def projects_content():
     """
     Returns the Projects section HTML (cards + modals + image URLs).
@@ -183,12 +189,20 @@ def projects_content():
 
 
 @app.route('/protected/images/<path:filename>')
+@limiter.limit("300 per hour")
 def protected_image(filename):
     """
     Serves project images only to unlocked sessions. Because these
     files live outside /static, they cannot be requested directly
     by guessing the URL — this route is the only path to them, and
     it checks the session before returning anything.
+
+    Rate limit is set higher than the app default because a single
+    page load of the Projects section can fetch 20+ images at once
+    (hero photos, gallery shots, and process shots across every
+    category), which would otherwise burn through the tighter
+    50/hour default meant for sensitive routes like the passcode
+    check.
     """
     if not session.get('projects_unlocked'):
         abort(403)

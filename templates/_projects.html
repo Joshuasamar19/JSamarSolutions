@@ -41,33 +41,210 @@
 <div class="modal" id="modal-bim">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-bim')">✕</button>
+
     <h2 class="modal-title">🏗️ MEP Electrical BIM Design</h2>
     <p class="modal-desc">Professional electrical BIM modeling using Revit MEP with Evolve add-in. Includes clash detection via Navisworks and coordination through Autodesk Construction Cloud.</p>
-    <div class="modal-gallery">
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/bim1.jpg" alt="BIM Project 1">
+
+    <div class="teaser-gallery">
+      <div class="teaser-item" onclick="openModal('modal-coreshell')">
+        <img src="/protected/images/bim1.jpg" alt="Core Shell Project">
+        <p>Core Shell</p>
+      </div>
+      <div class="teaser-item" onclick="openModal('modal-ukcc')">
+        <img src="/protected/images/bim2.jpg" alt="UKCC Center Project">
+        <p>UKCC Center</p>
+      </div>
+      <div class="teaser-item" onclick="openModal('modal-tcat')">
+        <img src="/protected/images/bim3.jpg" alt="TCAT Project">
+        <p>TCAT</p>
+      </div>
+    </div>
+
+    <div class="modal-tools">
+      <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>BIM 360</span><span>ACC</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-coreshell">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-coreshell')">✕</button>
+    <div class="modal-hero">
+      <img src="/protected/images/bim1.jpg" alt="Core Shell Project">
+      <span class="modal-category cat-bim">BIM · Core Shell</span>
+    </div>
+    <h2 class="modal-title">Core Shell Project</h2>
+    <p class="modal-desc">Full electrical build-out for a core-and-shell commercial development, from panel schedules to lighting and power layouts. Modeled end-to-end in Revit MEP with the Evolve add-in to prepare the project for tenant fit-out coordination.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>A core-and-shell commercial development needed complete electrical documentation prepared before tenant fit-out coordination could begin.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Modeled the electrical system end-to-end in Revit MEP with the Evolve add-in, covering panel schedules, lighting, and power layouts built for code compliance.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Delivered precise, ready-to-use documentation that gave the tenant fit-out team a clean, reliable starting point.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/coreshell-process1.jpg" alt="Core Shell process 1">
         <div class="gallery-info">
-          <h4>Core Shell Project</h4>
-          <p>Full electrical build-out for a core-and-shell commercial development, from panel schedules to lighting and power layouts. Modeled end-to-end in Revit MEP with the Evolve add-in for precise, code-compliant documentation ready for tenant fit-out coordination.</p>
+          <h4>Model Setup</h4>
+          <p>Setting up the base electrical model in Revit MEP.</p>
         </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/bim2.jpg" alt="BIM Project 2">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/coreshell-process2.jpg" alt="Core Shell process 2">
         <div class="gallery-info">
-          <h4>UKCC Center Project</h4>
-          <p>Multidisciplinary clash detection for the UKCC Center, running Navisworks reviews across electrical, mechanical, and structural models to catch conflicts before they reached the field. Coordinated resolutions directly with the design team through Autodesk Construction Cloud, keeping the project ahead of schedule.</p>
+          <h4>Panel Schedules</h4>
+          <p>Building out panel schedules for each floor.</p>
         </div>
       </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/bim3.jpg" alt="BIM Project 3">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/coreshell-process3.jpg" alt="Core Shell process 3">
         <div class="gallery-info">
-          <h4>TCAT Project</h4>
-          <p>Construction-ready BIM coordination drawings for the TCAT project, merging electrical models with architectural and structural disciplines into a single accurate deliverable. Reviewed, refined, and submitted through Autodesk Construction Cloud for a clean handoff to the field team.</p>
+          <h4>Lighting Layout</h4>
+          <p>Placing lighting and power layouts with the Evolve add-in.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/coreshell-process4.jpg" alt="Core Shell process 4">
+        <div class="gallery-info">
+          <h4>Final Review</h4>
+          <p>Checking the model for code compliance before handoff.</p>
         </div>
       </div>
     </div>
+
     <div class="modal-tools">
-      <span>Revit MEP</span><span>Evolve</span><span>Navisworks</span><span>BIM 360</span><span>ACC</span>
+      <span>Revit MEP</span><span>Evolve</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-ukcc">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-ukcc')">✕</button>
+    <div class="modal-hero">
+      <img src="/protected/images/bim2.jpg" alt="UKCC Center Project">
+      <span class="modal-category cat-bim">BIM · UKCC Center</span>
+    </div>
+    <h2 class="modal-title">UKCC Center Project</h2>
+    <p class="modal-desc">Multidisciplinary clash detection for the UKCC Center, coordinating electrical, mechanical, and structural models to catch conflicts before they reached the field. Resolutions were reviewed directly with the design team through Autodesk Construction Cloud.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>A multidisciplinary build required catching conflicts between electrical, mechanical, and structural systems before they reached the field.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Ran systematic clash-detection reviews in Navisworks across all three disciplines, coordinating resolutions with the design team through Autodesk Construction Cloud.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Kept the project ahead of schedule by resolving conflicts early, avoiding costly rework once construction began.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/ukcc-process1.jpg" alt="UKCC process 1">
+        <div class="gallery-info">
+          <h4>Model Combine</h4>
+          <p>Merging electrical, mechanical, and structural models.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/ukcc-process2.jpg" alt="UKCC process 2">
+        <div class="gallery-info">
+          <h4>Clash Detection</h4>
+          <p>Running clash-detection checks in Navisworks.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/ukcc-process3.jpg" alt="UKCC process 3">
+        <div class="gallery-info">
+          <h4>Team Review</h4>
+          <p>Reviewing flagged clashes with the design team.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/ukcc-process4.jpg" alt="UKCC process 4">
+        <div class="gallery-info">
+          <h4>Resolution</h4>
+          <p>Updating the model and confirming clashes are resolved.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-tools">
+      <span>Navisworks</span><span>ACC</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-tcat">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-tcat')">✕</button>
+    <div class="modal-hero">
+      <img src="/protected/images/bim3.jpg" alt="TCAT Project">
+      <span class="modal-category cat-bim">BIM · TCAT</span>
+    </div>
+    <h2 class="modal-title">TCAT Project</h2>
+    <p class="modal-desc">Construction-ready BIM coordination drawings merging electrical, architectural, and structural disciplines into a single accurate deliverable. Reviewed and refined through Autodesk Construction Cloud for a clean handoff to the field team.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Electrical, architectural, and structural models needed to be merged into one accurate, construction-ready deliverable.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Coordinated the electrical model into the shared BIM environment, reviewing and refining drawings through Autodesk Construction Cloud.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Delivered a clean, accurate handoff to the field team, ready for construction.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/tcat-process1.jpg" alt="TCAT process 1">
+        <div class="gallery-info">
+          <h4>Model Integration</h4>
+          <p>Bringing the electrical model into the shared BIM environment.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/tcat-process2.jpg" alt="TCAT process 2">
+        <div class="gallery-info">
+          <h4>Coordination Drawings</h4>
+          <p>Drafting coordination drawings across disciplines.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/tcat-process3.jpg" alt="TCAT process 3">
+        <div class="gallery-info">
+          <h4>ACC Review</h4>
+          <p>Submitting drawings for review through Autodesk Construction Cloud.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/tcat-process4.jpg" alt="TCAT process 4">
+        <div class="gallery-info">
+          <h4>Field Handoff</h4>
+          <p>Final refinements before handoff to the field team.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-tools">
+      <span>Revit MEP</span><span>ACC</span>
     </div>
   </div>
 </div>
@@ -76,8 +253,63 @@
 <div class="modal" id="modal-electrical">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-electrical')">✕</button>
+
+    <div class="modal-hero">
+      <img src="/protected/images/electrical1.jpg" alt="Electrical Control Systems">
+      <span class="modal-category cat-electrical">Electrical</span>
+    </div>
+
     <h2 class="modal-title">⚡ Electrical Control Systems</h2>
     <p class="modal-desc">Designed and optimized industrial electrical control systems at Cargill. Improved efficiency and reliability through automation and system troubleshooting.</p>
+
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Industrial electrical control systems needed to run reliably and efficiently under continuous plant production demands, with any downtime directly affecting operations.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Designed and optimized control panels and power distribution layouts using AutoCAD, PLC programming, and SCADA systems, with single-line diagrams prepared for plant-wide operations and compliance review.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Improved efficiency and reliability of the plant's control systems, supported by thorough testing, troubleshooting, and technical documentation for ongoing operations.</p>
+      </div>
+    </div>
+
+    <h3 class="process-heading">🔧 Behind the Process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical-process1.jpg" alt="Electrical process 1">
+        <div class="gallery-info">
+          <h4>Load Analysis</h4>
+          <p>Reviewing connected loads and demand requirements before layout.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical-process2.jpg" alt="Electrical process 2">
+        <div class="gallery-info">
+          <h4>Panel Design</h4>
+          <p>Drafting the control panel layout in AutoCAD.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical-process3.jpg" alt="Electrical process 3">
+        <div class="gallery-info">
+          <h4>PLC Programming</h4>
+          <p>Programming and testing PLC logic for the control system.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/electrical-process4.jpg" alt="Electrical process 4">
+        <div class="gallery-info">
+          <h4>System Testing</h4>
+          <p>Troubleshooting and validating the system on-site at the facility.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-divider">Final Deliverables</h3>
     <div class="modal-gallery">
       <div class="gallery-item" onclick="openLightbox(this)">
         <img src="/protected/images/electrical1.jpg" alt="Electrical Project 1">
@@ -94,6 +326,7 @@
         </div>
       </div>
     </div>
+
     <div class="modal-tools">
       <span>AutoCAD</span><span>PLC</span><span>SCADA</span><span>Power Systems</span>
     </div>
@@ -104,8 +337,63 @@
 <div class="modal" id="modal-python">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-python')">✕</button>
+
+    <div class="modal-hero">
+      <img src="/protected/images/python1.png" alt="Python Automation Tools">
+      <span class="modal-category cat-python">Automation</span>
+    </div>
+
     <h2 class="modal-title">💻 Python Automation Tools</h2>
     <p class="modal-desc">Python applications for engineering workflow automation, AI integration, and data processing. Built tools to streamline documentation and reporting processes.</p>
+
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Engineering teams were spending significant time on repetitive reporting, documentation, and data-processing tasks that could be handled programmatically.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Built Python-based automation tools and AI-integrated applications for generating engineering reports and processing data, extending some tools to interface with Arduino and Raspberry Pi hardware.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Streamlined documentation and reporting workflows, turning manual, repetitive processes into faster, more consistent automated tools.</p>
+      </div>
+    </div>
+
+    <h3 class="process-heading">🔧 Behind the Process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python-process1.jpg" alt="Python process 1">
+        <div class="gallery-info">
+          <h4>Planning the Workflow</h4>
+          <p>Mapping out the repetitive task and defining the automation logic.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python-process2.jpg" alt="Python process 2">
+        <div class="gallery-info">
+          <h4>Writing the Script</h4>
+          <p>Building and iterating on the Python automation code.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python-process3.jpg" alt="Python process 3">
+        <div class="gallery-info">
+          <h4>Testing</h4>
+          <p>Running the tool against real engineering data to check accuracy.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/python-process4.jpg" alt="Python process 4">
+        <div class="gallery-info">
+          <h4>Final Output</h4>
+          <p>Reviewing the generated report or dashboard before delivery.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-divider">Final Deliverables</h3>
     <div class="modal-gallery">
       <div class="gallery-item" onclick="openLightbox(this)">
         <img src="/protected/images/python1.png" alt="Python Project 1">
@@ -122,6 +410,7 @@
         </div>
       </div>
     </div>
+
     <div class="modal-tools">
       <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
     </div>

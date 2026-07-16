@@ -962,3 +962,15 @@ section.active-section {
     max-height: 38vh;
   }
 }
+
+/* Fix: guarantee the hero box has enough height that the
+   category badge (e.g. "BIM · Core Shell") never gets clipped
+   by the container's overflow:hidden, and always renders above
+   the image. */
+.modal-hero-contain {
+  min-height: 160px;
+  position: relative;
+}
+.modal-category {
+  z-index: 2;
+}

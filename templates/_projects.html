@@ -67,9 +67,9 @@
 </div>
 
 <div class="modal" id="modal-coreshell">
-  <div class="modal-box">
+  <div class="modal-box modal-box-full">
     <button class="modal-close" onclick="closeModal('modal-coreshell')">✕</button>
-    <div class="modal-hero">
+    <div class="modal-hero modal-hero-contain">
       <img src="/protected/images/bim1.jpg" alt="Core Shell Project">
       <span class="modal-category cat-bim">BIM · Core Shell</span>
     </div>
@@ -128,9 +128,9 @@
 </div>
 
 <div class="modal" id="modal-ukcc">
-  <div class="modal-box">
+  <div class="modal-box modal-box-full">
     <button class="modal-close" onclick="closeModal('modal-ukcc')">✕</button>
-    <div class="modal-hero">
+    <div class="modal-hero modal-hero-contain">
       <img src="/protected/images/bim2.jpg" alt="UKCC Center Project">
       <span class="modal-category cat-bim">BIM · UKCC Center</span>
     </div>
@@ -189,9 +189,9 @@
 </div>
 
 <div class="modal" id="modal-tcat">
-  <div class="modal-box">
+  <div class="modal-box modal-box-full">
     <button class="modal-close" onclick="closeModal('modal-tcat')">✕</button>
-    <div class="modal-hero">
+    <div class="modal-hero modal-hero-contain">
       <img src="/protected/images/bim3.jpg" alt="TCAT Project">
       <span class="modal-category cat-bim">BIM · TCAT</span>
     </div>
@@ -254,76 +254,17 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-electrical')">✕</button>
 
-    <div class="modal-hero">
-      <img src="/protected/images/electrical1.jpg" alt="Electrical Control Systems">
-      <span class="modal-category cat-electrical">Electrical</span>
-    </div>
-
     <h2 class="modal-title">⚡ Electrical Control Systems</h2>
     <p class="modal-desc">Designed and optimized industrial electrical control systems at Cargill. Improved efficiency and reliability through automation and system troubleshooting.</p>
 
-    <div class="case-study">
-      <div class="case-block">
-        <h4>Challenge</h4>
-        <p>Industrial electrical control systems needed to run reliably and efficiently under continuous plant production demands, with any downtime directly affecting operations.</p>
+    <div class="teaser-gallery">
+      <div class="teaser-item" onclick="openModal('modal-controlpanel')">
+        <img src="/protected/images/electrical1.jpg" alt="Control Panel Design">
+        <p>Control Panel Design</p>
       </div>
-      <div class="case-block">
-        <h4>Approach</h4>
-        <p>Designed and optimized control panels and power distribution layouts using AutoCAD, PLC programming, and SCADA systems, with single-line diagrams prepared for plant-wide operations and compliance review.</p>
-      </div>
-      <div class="case-block">
-        <h4>Result</h4>
-        <p>Improved efficiency and reliability of the plant's control systems, supported by thorough testing, troubleshooting, and technical documentation for ongoing operations.</p>
-      </div>
-    </div>
-
-    <h3 class="process-heading">🔧 Behind the Process</h3>
-    <div class="process-gallery">
-      <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical-process1.jpg" alt="Electrical process 1">
-        <div class="gallery-info">
-          <h4>Load Analysis</h4>
-          <p>Reviewing connected loads and demand requirements before layout.</p>
-        </div>
-      </div>
-      <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical-process2.jpg" alt="Electrical process 2">
-        <div class="gallery-info">
-          <h4>Panel Design</h4>
-          <p>Drafting the control panel layout in AutoCAD.</p>
-        </div>
-      </div>
-      <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical-process3.jpg" alt="Electrical process 3">
-        <div class="gallery-info">
-          <h4>PLC Programming</h4>
-          <p>Programming and testing PLC logic for the control system.</p>
-        </div>
-      </div>
-      <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical-process4.jpg" alt="Electrical process 4">
-        <div class="gallery-info">
-          <h4>System Testing</h4>
-          <p>Troubleshooting and validating the system on-site at the facility.</p>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="section-divider">Final Deliverables</h3>
-    <div class="modal-gallery">
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical1.jpg" alt="Electrical Project 1">
-        <div class="gallery-info">
-          <h4>Control Panel Design</h4>
-          <p>Industrial electrical control panel designed for process automation at Cargill facility.</p>
-        </div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/electrical2.jpg" alt="Electrical Project 2">
-        <div class="gallery-info">
-          <h4>Power Distribution System</h4>
-          <p>Power distribution layout and single line diagram for industrial plant operations.</p>
-        </div>
+      <div class="teaser-item" onclick="openModal('modal-powerdist')">
+        <img src="/protected/images/electrical2.jpg" alt="Power Distribution System">
+        <p>Power Distribution</p>
       </div>
     </div>
 
@@ -333,86 +274,267 @@
   </div>
 </div>
 
+<div class="modal" id="modal-controlpanel">
+  <div class="modal-box modal-box-full">
+    <button class="modal-close" onclick="closeModal('modal-controlpanel')">✕</button>
+    <div class="modal-hero modal-hero-contain">
+      <img src="/protected/images/electrical1.jpg" alt="Control Panel Design">
+      <span class="modal-category cat-electrical">Electrical · Control Panel</span>
+    </div>
+    <h2 class="modal-title">Control Panel Design</h2>
+    <p class="modal-desc">Industrial electrical control panel designed for process automation at Cargill facility, built to run reliably under continuous production demands.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Cargill's plant needed a dedicated control panel to manage process automation reliably, with any downtime directly affecting operations.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Designed the control panel layout in AutoCAD and integrated PLC programming to drive the automated process.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Delivered a functional, tested control panel supporting reliable, automated plant operations.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/controlpanel-process1.jpg" alt="Control panel process 1">
+        <div class="gallery-info">
+          <h4>Load Analysis</h4>
+          <p>Reviewing connected loads and demand requirements.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/controlpanel-process2.jpg" alt="Control panel process 2">
+        <div class="gallery-info">
+          <h4>Panel Layout</h4>
+          <p>Drafting the control panel layout in AutoCAD.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/controlpanel-process3.jpg" alt="Control panel process 3">
+        <div class="gallery-info">
+          <h4>PLC Programming</h4>
+          <p>Programming and testing PLC logic for the panel.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/controlpanel-process4.jpg" alt="Control panel process 4">
+        <div class="gallery-info">
+          <h4>On-site Testing</h4>
+          <p>Validating the panel on-site at the facility.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>AutoCAD</span><span>PLC</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-powerdist">
+  <div class="modal-box modal-box-full">
+    <button class="modal-close" onclick="closeModal('modal-powerdist')">✕</button>
+    <div class="modal-hero modal-hero-contain">
+      <img src="/protected/images/electrical2.jpg" alt="Power Distribution System">
+      <span class="modal-category cat-electrical">Electrical · Power Distribution</span>
+    </div>
+    <h2 class="modal-title">Power Distribution System</h2>
+    <p class="modal-desc">Power distribution layout and single line diagram for industrial plant operations, prepared for compliance and reliable long-term use.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>The plant needed a clear, compliant power distribution plan to support safe, ongoing operations.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Prepared the power distribution layout and single-line diagram based on load requirements and safety standards.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Delivered documentation that supported safe, reliable power distribution across the plant.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/powerdist-process1.jpg" alt="Power distribution process 1">
+        <div class="gallery-info">
+          <h4>Load Review</h4>
+          <p>Reviewing plant load requirements and demand data.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/powerdist-process2.jpg" alt="Power distribution process 2">
+        <div class="gallery-info">
+          <h4>Single-Line Diagram</h4>
+          <p>Drafting the single-line diagram for the plant.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/powerdist-process3.jpg" alt="Power distribution process 3">
+        <div class="gallery-info">
+          <h4>Compliance Check</h4>
+          <p>Checking the layout against safety standards.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/powerdist-process4.jpg" alt="Power distribution process 4">
+        <div class="gallery-info">
+          <h4>Final Documentation</h4>
+          <p>Finalizing the layout for plant operations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>Power Systems</span><span>SCADA</span>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL: PYTHON -->
 <div class="modal" id="modal-python">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-python')">✕</button>
 
-    <div class="modal-hero">
-      <img src="/protected/images/python1.png" alt="Python Automation Tools">
-      <span class="modal-category cat-python">Automation</span>
-    </div>
-
     <h2 class="modal-title">💻 Python Automation Tools</h2>
     <p class="modal-desc">Python applications for engineering workflow automation, AI integration, and data processing. Built tools to streamline documentation and reporting processes.</p>
 
-    <div class="case-study">
-      <div class="case-block">
-        <h4>Challenge</h4>
-        <p>Engineering teams were spending significant time on repetitive reporting, documentation, and data-processing tasks that could be handled programmatically.</p>
+    <div class="teaser-gallery">
+      <div class="teaser-item" onclick="openModal('modal-autoscript')">
+        <img src="/protected/images/python1.png" alt="Automation Script Dashboard">
+        <p>Automation Dashboard</p>
       </div>
-      <div class="case-block">
-        <h4>Approach</h4>
-        <p>Built Python-based automation tools and AI-integrated applications for generating engineering reports and processing data, extending some tools to interface with Arduino and Raspberry Pi hardware.</p>
-      </div>
-      <div class="case-block">
-        <h4>Result</h4>
-        <p>Streamlined documentation and reporting workflows, turning manual, repetitive processes into faster, more consistent automated tools.</p>
+      <div class="teaser-item" onclick="openModal('modal-aitool')">
+        <img src="/protected/images/python2.png" alt="AI Integration Tool">
+        <p>AI Integration Tool</p>
       </div>
     </div>
 
-    <h3 class="process-heading">🔧 Behind the Process</h3>
+    <div class="modal-tools">
+      <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-autoscript">
+  <div class="modal-box modal-box-full">
+    <button class="modal-close" onclick="closeModal('modal-autoscript')">✕</button>
+    <div class="modal-hero modal-hero-contain">
+      <img src="/protected/images/python1.png" alt="Automation Script Dashboard">
+      <span class="modal-category cat-python">Python · Automation</span>
+    </div>
+    <h2 class="modal-title">Automation Script Dashboard</h2>
+    <p class="modal-desc">Python-based automation tool for generating engineering reports and processing data, built to cut down repetitive manual work.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Manual report generation and data processing were taking up engineering time that could be spent on higher-value work.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Built a Python-based automation tool that generates engineering reports and processes data automatically from existing files.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Reduced manual effort in report generation, freeing up time for more valuable engineering tasks.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
     <div class="process-gallery">
       <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python-process1.jpg" alt="Python process 1">
+        <img src="/protected/images/autoscript-process1.jpg" alt="Automation script process 1">
         <div class="gallery-info">
           <h4>Planning the Workflow</h4>
-          <p>Mapping out the repetitive task and defining the automation logic.</p>
+          <p>Mapping out the repetitive task and the automation logic.</p>
         </div>
       </div>
       <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python-process2.jpg" alt="Python process 2">
+        <img src="/protected/images/autoscript-process2.jpg" alt="Automation script process 2">
         <div class="gallery-info">
           <h4>Writing the Script</h4>
           <p>Building and iterating on the Python automation code.</p>
         </div>
       </div>
       <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python-process3.jpg" alt="Python process 3">
+        <img src="/protected/images/autoscript-process3.jpg" alt="Automation script process 3">
         <div class="gallery-info">
           <h4>Testing</h4>
-          <p>Running the tool against real engineering data to check accuracy.</p>
+          <p>Running the tool against real engineering data.</p>
         </div>
       </div>
       <div class="gallery-item process-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python-process4.jpg" alt="Python process 4">
+        <img src="/protected/images/autoscript-process4.jpg" alt="Automation script process 4">
         <div class="gallery-info">
           <h4>Final Output</h4>
-          <p>Reviewing the generated report or dashboard before delivery.</p>
+          <p>Reviewing the generated report before delivery.</p>
         </div>
       </div>
     </div>
-
-    <h3 class="section-divider">Final Deliverables</h3>
-    <div class="modal-gallery">
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python1.png" alt="Python Project 1">
-        <div class="gallery-info">
-          <h4>Automation Script Dashboard</h4>
-          <p>Python-based automation tool for generating engineering reports and data processing.</p>
-        </div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="/protected/images/python2.png" alt="Python Project 2">
-        <div class="gallery-info">
-          <h4>AI Integration Tool</h4>
-          <p>AI-powered workflow tool built with Python for engineering data analysis and automation.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="modal-tools">
-      <span>Python</span><span>AI</span><span>Arduino</span><span>Raspberry Pi</span>
+      <span>Python</span><span>Automation</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-aitool">
+  <div class="modal-box modal-box-full">
+    <button class="modal-close" onclick="closeModal('modal-aitool')">✕</button>
+    <div class="modal-hero modal-hero-contain">
+      <img src="/protected/images/python2.png" alt="AI Integration Tool">
+      <span class="modal-category cat-python">Python · AI</span>
+    </div>
+    <h2 class="modal-title">AI Integration Tool</h2>
+    <p class="modal-desc">AI-powered workflow tool built with Python for engineering data analysis and automation, designed to speed up repetitive analysis tasks.</p>
+    <div class="case-study">
+      <div class="case-block">
+        <h4>Challenge</h4>
+        <p>Engineering data analysis needed a faster, more consistent way to process and interpret information.</p>
+      </div>
+      <div class="case-block">
+        <h4>Approach</h4>
+        <p>Built an AI-powered workflow tool in Python to support data analysis and automate repetitive analysis tasks.</p>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>Provided a faster, more consistent way to analyze engineering data and automate repetitive work.</p>
+      </div>
+    </div>
+    <h3 class="process-heading">🔧 Behind the process</h3>
+    <div class="process-gallery">
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/aitool-process1.jpg" alt="AI tool process 1">
+        <div class="gallery-info">
+          <h4>Defining the Problem</h4>
+          <p>Scoping the analysis task and desired outcome.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/aitool-process2.jpg" alt="AI tool process 2">
+        <div class="gallery-info">
+          <h4>Data Preparation</h4>
+          <p>Preparing and organizing the engineering data.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/aitool-process3.jpg" alt="AI tool process 3">
+        <div class="gallery-info">
+          <h4>Building the Tool</h4>
+          <p>Developing the AI-assisted analysis workflow.</p>
+        </div>
+      </div>
+      <div class="gallery-item process-item" onclick="openLightbox(this)">
+        <img src="/protected/images/aitool-process4.jpg" alt="AI tool process 4">
+        <div class="gallery-info">
+          <h4>Validation</h4>
+          <p>Reviewing results and refining the tool.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-tools">
+      <span>Python</span><span>AI</span>
     </div>
   </div>
 </div>

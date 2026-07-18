@@ -890,11 +890,20 @@ section.active-section {
 /* ========================= */
 /* FULL-SCREEN CASE STUDY MODAL */
 /* ========================= */
+/* Sized with vh first as a fallback for older browsers, then
+   overridden with dvh (dynamic viewport height) on anything
+   modern. On mobile, vh counts space currently covered by the
+   browser's address/tab bar, so a modal sized purely with vh can
+   measure taller than what's actually visible and get pushed up
+   behind that bar. dvh adjusts automatically to the space that's
+   actually visible on screen. */
 .modal-box-full {
   max-width: 1100px;
   width: 96vw;
-  height: 92vh;
-  max-height: 92vh;
+  height: 90vh;
+  max-height: 90vh;
+  height: 88dvh;
+  max-height: 88dvh;
 }
 
 /* Hero image shown in full — letterboxed, never cropped.
@@ -941,6 +950,8 @@ section.active-section {
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     border-radius: 0;
   }
   .modal-hero-contain,

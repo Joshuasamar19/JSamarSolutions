@@ -974,3 +974,10 @@ section.active-section {
 .modal-category {
   z-index: 2;
 }
+/* Fix: keep the ✕ close button above the hero image at all times.
+   The hero image bleeds to the top edge of the modal with negative
+   margins and is a positioned element, so without this it can end
+   up painting over the close button in the same corner. */
+.modal-close {
+  z-index: 10;
+}

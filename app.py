@@ -174,6 +174,19 @@ def projects_status():
     return jsonify({'unlocked': bool(session.get('projects_unlocked'))}), 200
 
 
+@app.route('/lock-projects', methods=['POST'])
+@limiter.limit("30 per hour")
+def lock_projects():
+    """
+    Re-locks the Projects section by clearing the unlocked flag from
+    this browser's session. Called automatically by the frontend the
+    moment the visitor navigates away from the Projects section, so
+    coming back later requires the passcode again.
+    """
+    session.pop('projects_unlocked', None)
+    return jsonify({'locked': True}), 200
+
+
 @app.route('/projects-content')
 @limiter.limit("100 per hour")
 def projects_content():

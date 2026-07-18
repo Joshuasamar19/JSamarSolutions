@@ -120,17 +120,47 @@ document.querySelectorAll('a[href^="#"]:not(.nav-links a)').forEach(link => {
 // network call to /check-passcode, which sets a signed session
 // cookie on success. Project content and images are then fetched
 // from routes that require that session — see loadProjectsContent().
+//
+// Leaving the Projects section re-locks it (client AND server side)
+// so coming back later requires the passcode again — see
+// goToSection() and lockProjects() below.
 // =========================
 let projectsUnlocked = false;
 let pendingSection = null;
 
 function goToSection(targetId) {
+  const currentActive = document.querySelector('section.active-section');
+  const leavingProjects = currentActive && currentActive.id === 'projects' && targetId !== 'projects';
+
   if (targetId === 'projects' && !projectsUnlocked) {
     pendingSection = targetId;
     openPasscodeGate();
     return;
   }
+
+  if (leavingProjects) {
+    lockProjects();
+  }
+
   showSection(targetId);
+}
+
+// Re-locks the Projects section the moment the visitor navigates
+// away from it — clears the in-memory flag immediately, and tells
+// the server to drop the session flag too so a page refresh also
+// requires the passcode again.
+async function lockProjects() {
+  projectsUnlocked = false;
+  const container = document.getElementById('projects-container');
+  if (container) container.innerHTML = '';
+
+  try {
+    await fetch('/lock-projects', { method: 'POST' });
+  } catch (err) {
+    // Fail silently — the client-side lock above still takes effect
+    // immediately either way, so the passcode gate will reappear
+    // next time Projects is opened in this tab.
+  }
 }
 
 function openPasscodeGate() {
